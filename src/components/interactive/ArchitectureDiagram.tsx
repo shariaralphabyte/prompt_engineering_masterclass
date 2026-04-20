@@ -22,7 +22,14 @@ interface ArchitectureDiagramProps {
   description?: string;
 }
 
-export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ nodes, links, title, description }) => {
+export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ nodes = [], links = [], title, description }) => {
+  // Default nodes if none provided
+  const defaultNodes: Node[] = nodes.length > 0 ? nodes : [
+    { id: '1', label: 'Input', color: '#6366F1' },
+    { id: '2', label: 'Process', color: '#F59E0B' },
+    { id: '3', label: 'Output', color: '#10B981' },
+  ];
+
   return (
     <div className="w-full space-y-8 py-6">
       <div className="flex items-center justify-between">
@@ -43,8 +50,8 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ nodes,
 
       <div className="relative bg-slate-900 shadow-2xl rounded-3xl border border-slate-800 p-10 overflow-hidden flex flex-wrap justify-center gap-12 items-center">
         <div className="absolute inset-0 bg-grid-slate-800 opacity-20" style={{ backgroundSize: '20px 20px', backgroundImage: 'radial-gradient(circle, #1e293b 1px, transparent 1px)' }} />
-        
-        {nodes.map((node, i) => (
+
+        {defaultNodes.map((node, i) => (
           <React.Fragment key={node.id}>
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -52,19 +59,19 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ nodes,
               transition={{ delay: i * 0.1 }}
               className="relative z-10 flex flex-col items-center gap-3 group"
             >
-              <div 
+              <div
                 className="w-20 h-20 rounded-2xl flex items-center justify-center text-white transition-all duration-500 border border-white/5 shadow-2xl"
-                style={{ 
+                style={{
                   backgroundColor: node.color,
-                  boxShadow: `0 0 40px ${node.color}20` 
+                  boxShadow: `0 0 40px ${node.color}20`
                 }}
               >
                 {node.icon ? <node.icon size={32} /> : <GitBranch size={32} />}
               </div>
               <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-white transition-colors">{node.label}</p>
             </motion.div>
-            
-            {i < nodes.length - 1 && (
+
+            {i < defaultNodes.length - 1 && (
               <motion.div
                 initial={{ opacity: 0, width: 0 }}
                 animate={{ opacity: 1, width: 40 }}

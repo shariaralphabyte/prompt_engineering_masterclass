@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Sidebar } from './components/layout/Sidebar';
 import { Header } from './components/layout/Header';
+import { ModuleContent } from './components/modules/ModuleContent';
 import { DashboardHero } from './components/layout/DashboardHero';
 import { curriculum } from './data/curriculum';
 
@@ -40,10 +41,10 @@ export function App() {
           {!selectedModuleId ? (
             <DashboardHero />
           ) : selectedModuleData ? (
-            <div className="flex flex-col items-center justify-center h-[60vh] text-slate-400 space-y-4">
-               <div className="text-4xl">📚</div>
-               <p className="font-medium">Module content coming soon...</p>
-            </div>
+            <ModuleContent
+              module={selectedModuleData.module}
+              phaseColor={selectedModuleData.color}
+            />
           ) : (
             <div className="flex flex-col items-center justify-center h-[60vh] text-slate-400 space-y-4">
                <div className="text-4xl">🔍</div>

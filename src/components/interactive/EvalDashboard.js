@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.EvalDashboard = void 0;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const react_1 = __importDefault(require("react"));
+const framer_motion_1 = require("framer-motion");
+const lucide_react_1 = require("lucide-react");
+const metrics = [
+    { label: 'Accuracy', value: '94.2%', change: '+2.1%', icon: lucide_react_1.Target, color: '#10B981' },
+    { label: 'Latency', value: '1.2s', change: '-100ms', icon: lucide_react_1.Activity, color: '#F59E0B' },
+    { label: 'Safety', value: '99.9%', change: 'Stable', icon: lucide_react_1.ShieldCheck, color: '#6366F1' },
+    { label: 'Hallucination', value: '0.4%', change: '-0.2%', icon: lucide_react_1.AlertCircle, color: '#EF4444' },
+];
+const EvalDashboard = () => {
+    return ((0, jsx_runtime_1.jsxs)("div", { className: "w-full space-y-8 py-4", children: [(0, jsx_runtime_1.jsx)("div", { className: "grid grid-cols-2 md:grid-cols-4 gap-4", children: metrics.map((m, i) => ((0, jsx_runtime_1.jsxs)(framer_motion_1.motion.div, { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, transition: { delay: i * 0.1 }, className: "bg-slate-800/80 p-4 rounded-2xl border border-slate-700/50", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center gap-2 mb-2", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-7 h-7 rounded-lg flex items-center justify-center text-white p-1", style: { backgroundColor: m.color }, children: (0, jsx_runtime_1.jsx)(m.icon, { size: 16 }) }), (0, jsx_runtime_1.jsx)("span", { className: "text-[10px] font-black uppercase text-slate-500", children: m.label })] }), (0, jsx_runtime_1.jsxs)("div", { className: "flex items-baseline gap-2", children: [(0, jsx_runtime_1.jsx)("span", { className: "text-xl font-black text-white", children: m.value }), (0, jsx_runtime_1.jsx)("span", { className: `text-[9px] font-bold ${m.change.startsWith('+') || m.change === 'Stable' ? 'text-emerald-400' : 'text-amber-400'}`, children: m.change })] })] }, i))) }), (0, jsx_runtime_1.jsxs)("div", { className: "bg-slate-800/50 border border-slate-700/50 rounded-3xl p-6 min-h-[250px] relative overflow-hidden", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center justify-between mb-8", children: [(0, jsx_runtime_1.jsxs)("h5", { className: "text-sm font-bold text-slate-300 flex items-center gap-2", children: [(0, jsx_runtime_1.jsx)(lucide_react_1.BarChart3, { size: 16, className: "text-indigo-400" }), "Model Performance Over Time"] }), (0, jsx_runtime_1.jsxs)("div", { className: "flex gap-2", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-2 h-2 rounded-full bg-emerald-400 animate-pulse" }), (0, jsx_runtime_1.jsx)("span", { className: "text-[9px] font-black uppercase text-slate-500 tracking-widest", children: "Live Monitoring" })] })] }), (0, jsx_runtime_1.jsx)("div", { className: "flex items-end justify-between gap-1 h-32 px-4", children: [40, 70, 45, 90, 65, 80, 95, 60, 85, 75, 92, 88].map((h, i) => ((0, jsx_runtime_1.jsx)(framer_motion_1.motion.div, { initial: { height: 0 }, animate: { height: `${h}%` }, transition: { delay: i * 0.05, type: 'spring', stiffness: 100 }, className: "w-full bg-gradient-to-t from-indigo-600/20 to-indigo-500 rounded-t-sm" }, i))) }), (0, jsx_runtime_1.jsxs)("div", { className: "mt-8 p-4 border-t border-slate-700/50 flex items-center justify-between", children: [(0, jsx_runtime_1.jsxs)("div", { className: "text-xs text-slate-400 font-medium", children: [(0, jsx_runtime_1.jsx)("span", { className: "text-emerald-400 font-bold", children: "LLM-as-Judge" }), " \u0987\u09AD\u09BE\u09B2\u09C1\u09AF\u09BC\u09C7\u09B6\u09A8 \u0995\u09AE\u09AA\u09CD\u09B2\u09BF\u099F \u09B9\u09DF\u09C7\u099B\u09C7\u0964 \u09E7\u09E8\u099F\u09BF \u099F\u09C7\u09B8\u09CD\u099F \u09AA\u09BE\u09B8\u09C7\u09B0 \u09B0\u09C7\u099F \u09E7\u09E6\u09E6%\u0964"] }), (0, jsx_runtime_1.jsx)("button", { className: "text-[10px] bg-white/5 hover:bg-white/10 text-slate-300 px-3 py-1 rounded-lg border border-slate-700 transition-colors", children: "VIEW FULL TRACE" })] })] })] }));
+};
+exports.EvalDashboard = EvalDashboard;
+//# sourceMappingURL=EvalDashboard.js.map

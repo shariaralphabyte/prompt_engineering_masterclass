@@ -1,0 +1,14 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.Header = void 0;
+const jsx_runtime_1 = require("react/jsx-runtime");
+const react_1 = __importDefault(require("react"));
+const lucide_react_1 = require("lucide-react");
+const Header = ({ onMenuToggle, onHomeClick, title }) => {
+    return ((0, jsx_runtime_1.jsxs)("header", { className: "sticky top-0 z-40 w-full glass border-b px-6 py-4 flex items-center justify-between", children: [(0, jsx_runtime_1.jsxs)("div", { className: "flex items-center gap-4", children: [(0, jsx_runtime_1.jsx)("button", { onClick: onMenuToggle, className: "lg:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors", children: (0, jsx_runtime_1.jsx)(lucide_react_1.Menu, { size: 20 }) }), (0, jsx_runtime_1.jsxs)("button", { onClick: onHomeClick, className: "hidden sm:flex items-center gap-2 group cursor-pointer", children: [(0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-all", children: (0, jsx_runtime_1.jsx)(Zap, { size: 16, fill: "white" }) }), (0, jsx_runtime_1.jsx)("span", { className: "text-sm font-black uppercase tracking-tighter text-slate-900", children: "Boss Level AI" })] }), (0, jsx_runtime_1.jsx)("div", { className: "h-4 w-px bg-slate-200 hidden sm:block mx-2" }), (0, jsx_runtime_1.jsx)("h1", { className: "text-lg font-semibold text-slate-800 truncate max-w-[200px] sm:max-w-md", children: title })] }), (0, jsx_runtime_1.jsxs)("div", { className: "flex items-center gap-2 sm:gap-4", children: [(0, jsx_runtime_1.jsxs)("div", { className: "hidden sm:flex items-center bg-slate-100 px-3 py-1.5 rounded-full border border-transparent focus-within:border-slate-200 transition-all", children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Search, { size: 16, className: "text-slate-400" }), (0, jsx_runtime_1.jsx)("input", { type: "text", placeholder: "Search modules...", className: "bg-transparent border-none outline-none text-sm ml-2 w-32 lg:w-48" })] }), (0, jsx_runtime_1.jsxs)("button", { className: "p-2 text-slate-500 hover:text-slate-800 transition-colors relative", children: [(0, jsx_runtime_1.jsx)(lucide_react_1.Bell, { size: 20 }), (0, jsx_runtime_1.jsx)("span", { className: "absolute top-2 right-2 w-2 h-2 bg-indigo-500 rounded-full border-2 border-white" })] }), (0, jsx_runtime_1.jsx)("div", { className: "w-8 h-8 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-500 flex items-center justify-center text-white cursor-pointer shadow-sm", children: (0, jsx_runtime_1.jsx)(lucide_react_1.User, { size: 16 }) })] })] }));
+};
+exports.Header = Header;
+//# sourceMappingURL=Header.js.map

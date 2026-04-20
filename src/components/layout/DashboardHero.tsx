@@ -69,12 +69,12 @@ export const DashboardHero: React.FC = () => {
 };
 
 const HeroStat: React.FC<{ icon: any, label: string, sub: string, color: string }> = ({ icon: Icon, label, sub, color }) => (
-  <motion.div 
+  <motion.div
     whileHover={{ y: -5 }}
     className="bg-white/5 border border-white/10 p-6 rounded-3xl backdrop-blur-md"
   >
     <div className={`w-10 h-10 rounded-xl ${color} flex items-center justify-center text-white mb-4 shadow-lg shadow-black/20`}>
-       <Icon size={20} />
+       {Icon ? <Icon size={20} /> : <div className="w-4 h-4" />}
     </div>
     <h4 className="text-xl font-bold mb-1">{label}</h4>
     <p className="text-[10px] text-slate-500 font-black uppercase tracking-widest">{sub}</p>

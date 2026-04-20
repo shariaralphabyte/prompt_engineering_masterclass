@@ -35,7 +35,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ onSelectModule, selectedModule
               <div key={phase.id} className="mb-8">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: phase.color + '15', color: phase.color }}>
-                    <Icon size={18} />
+                    {Icon ? <Icon size={18} /> : <div className="w-4 h-4" />}
                   </div>
                   <div>
                     <h3 className="text-sm font-bold leading-tight" style={{ color: phase.color }}>

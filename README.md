@@ -67,7 +67,25 @@ npm run build
 
 # Preview production build
 npm run preview
+
+# Deploy to GitHub Pages (manual)
+npm run deploy
 ```
+
+## GitHub Pages Deployment
+
+This project is configured for automatic deployment to GitHub Pages via GitHub Actions:
+
+1. **Automatic Deployment**: Push to `main` branch triggers automatic build and deployment
+2. **Manual Deployment**: Use `npm run deploy` for local deployment
+3. **Live Site**: Available at `https://[username].github.io/prompt_engineering_masterclass/`
+
+### GitHub Pages Setup
+
+1. Go to repository Settings > Pages
+2. Source: GitHub Actions
+3. Enable "Read and write permissions" for Actions in repository settings
+4. Push to main branch to trigger deployment
 
 ## Project Structure
 

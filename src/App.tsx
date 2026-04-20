@@ -1,6 +1,6 @@
 import React from 'react';
 
-function App() {
+export function App() {
   return (
     <div className="flex bg-[#FAFAF8] min-h-screen font-inter items-center justify-center">
       <div className="text-center">
@@ -10,5 +10,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

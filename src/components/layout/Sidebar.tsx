@@ -1,6 +1,7 @@
 import React from 'react';
 import { curriculum } from '../../data/curriculum';
-import { LucideIcon, ChevronRight, BookOpen, Layers, Terminal, Cpu, ShieldCheck, Rocket } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
+import { ChevronRight, BookOpen, Layers, Terminal, Cpu, ShieldCheck, Rocket } from 'lucide-react';
 
 interface SidebarProps {
   onSelectModule: (moduleId: string) => void;

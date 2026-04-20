@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import { useState, useMemo } from 'react';
 import { Sidebar } from './components/layout/Sidebar';
 import { Header } from './components/layout/Header';
 import { ModuleContent } from './components/modules/ModuleContent';
@@ -22,7 +22,7 @@ function App() {
     <div className="flex bg-[#FAFAF8] min-h-screen font-inter">
       {/* Sidebar - Desktop */}
       <Sidebar 
-        selectedModuleId={selectedModuleId} 
+        selectedModuleId={selectedModuleId || ''} 
         onSelectModule={(id) => {
           setSelectedModuleId(id);
           setIsSidebarOpen(false);
@@ -65,7 +65,7 @@ function App() {
             onClick={e => e.stopPropagation()}
           >
              <Sidebar 
-                selectedModuleId={selectedModuleId} 
+                selectedModuleId={selectedModuleId || ''} 
                 onSelectModule={(id) => {
                   setSelectedModuleId(id);
                   setIsSidebarOpen(false);

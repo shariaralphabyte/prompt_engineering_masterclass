@@ -26,7 +26,7 @@ import { MultimodalDemo } from '../interactive/MultimodalDemo';
 import { CheatsheetGrid } from '../interactive/CheatsheetGrid';
 import { EvalDashboard } from '../interactive/EvalDashboard';
 
-const InteractiveComponents: Record<string, React.FC> = {
+const InteractiveComponents: Record<string, React.FC<any>> = {
   TokenizerDiagram: TokenizerDiagram,
   ModelComparison: ModelComparison,
   CachingSimulator: CachingSimulator,

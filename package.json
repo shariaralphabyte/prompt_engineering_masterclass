@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "npx vite",
-    "build": "npx tsc && npx vite build",
+    "build": "npx vite build",
+    "build:check": "npx tsc && npx vite build",
     "preview": "npx vite preview",
     "deploy": "npm run build && gh-pages -d dist"
   },

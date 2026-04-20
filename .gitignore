@@ -38,5 +38,10 @@ pids
 # TypeScript
 *.tsbuildinfo
 
+# Generated TypeScript files (Vite handles these)
+src/**/*.js
+src/**/*.js.map
+src/**/*.d.ts
+
 # Vite
 .vite/

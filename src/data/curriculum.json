@@ -1,0 +1,218 @@
+{
+  "curriculum": [
+    {
+      "id": "phase-1",
+      "title": "Phase 1: Deep Theory & Digital Economics (ভিত্তিপ্রস্তর)",
+      "description": "এই ফেজে আমরা এআই-এর ম্যাথম্যাটিকাল ও ইকোনমিক্যাল সাইড বুঝবো।",
+      "modules": [
+        {
+          "id": "mod-1",
+          "title": "Module 1: The Token Architecture & LLM Mechanics",
+          "labType": "token",
+          "lessons": [
+            { "id": "1.1", "title": "Lesson 1.1: টোকেনাইজেশন হ্যাকস", "content": "কীভাবে টোকেন এফিশিয়েন্সি বাড়িয়ে গুণগত মান ঠিক রাখা যায়।" },
+            { "id": "1.2", "title": "Lesson 1.2: Temperature vs Top-P vs Frequency Penalty", "content": "কখন কোনটি পরিবর্তন করলে আউটপুট \"সৃজনশীল\" বনাম \"যৌক্তিক\" হয়।" },
+            { "id": "1.3", "title": "Lesson 1.3: KV Cache & Latency", "content": "কেন বড় প্রম্পটে রেসপন্স আসতে দেরি হয় এবং তা কমানোর উপায়।" }
+          ],
+          "bossSecret": "ওয়ান-পাস রিজনিং বনাম ইন্টারনাল চেইন-অফ-থট এর পার্থক্য।"
+        },
+        {
+          "id": "mod-2",
+          "title": "Module 2: The Multi-Model Strategy",
+          "lessons": [
+            { "id": "2.1", "title": "Lesson 2.1: Claude Opus 4.7 vs GPT-4o vs Gemini 3 Pro", "content": "কোন মডেল কখন বেছে নেবেন (রিয়েল-ওয়ার্ল্ড কেস)।" },
+            { "id": "2.2", "title": "Lesson 2.2: Reasoning Models (o1/o1-mini/o3)", "content": "সাইলেন্ট রিজনিং এর পেছনের ডাইনামিক্স।" },
+            { "id": "2.3", "title": "Lesson 2.3: Small Language Models (SLMs)", "content": "Phi-4 ও Llama-3.2 কেন আপনার টাকা বাঁচাতে পারে।" }
+          ]
+        },
+        {
+          "id": "mod-3",
+          "title": "Module 3: Prompt Caching & Cost Engineering",
+          "labType": "efficiency",
+          "lessons": [
+            { "id": "3.1", "title": "Lesson 3.1: Anthropic Prompt Caching Deep Dive", "content": "৯০% পর্যন্ত খরচ কমানোর সার্জিক্যাল প্রসেস।" },
+            { "id": "3.2", "title": "Lesson 3.2: cache_control ইমপ্লিমেন্টেশন", "content": "নোড-বেজড অ্যাপ্লিকেশনে ক্যাশিং সেটআপ।" },
+            { "id": "3.3", "title": "Lesson 3.3: কস্ট-পারফরম্যান্স এনালাইসিস", "content": "কখন দামী মডেল ছেড়ে সস্তা মডেলে ড্রপডাউন করবেন।" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "phase-2",
+      "title": "Phase 2: Advanced Structural Prompting (কারিগরি দক্ষতা)",
+      "description": "এখানে আমরা প্রম্পটকে একটি সফটওয়্যার কোড হিসেবে ট্রিট করা শিখবো।",
+      "modules": [
+        {
+          "id": "mod-4",
+          "title": "Module 4: XML & Markdown Precision",
+          "lessons": [
+            { "id": "4.1", "title": "Lesson 4.1: XML Tagging Strategy", "content": "XML আর্কিটেকচার ব্যবহার করে প্রম্পটকে আরও প্রফেশনাল এবং শক্তিশালী করার উপায়।" },
+            { "id": "4.2", "title": "Lesson 4.2: ডেলিমিটার ও সেকশন সেপারেশন", "content": "মডেলকে \"বিভ্রান্তি\" থেকে বাঁচানোর জন্য ডেলিমিটার ব্যবহারের মাস্টারি।" },
+            { "id": "4.3", "title": "Lesson 4.3: প্রম্পট ভার্সন কন্ট্রোল", "content": "গিট এর মতো প্রম্পট ম্যানেজমেন্ট ও হিস্ট্রি ট্র্যাকিং।" }
+          ]
+        },
+        {
+          "id": "mod-5",
+          "title": "Module 5: Prefilling & Constrained Output",
+          "lessons": [
+            { "id": "5.1", "title": "Lesson 5.1: অ্যাসিস্ট্যান্ট রেসপন্স প্রি-ফিলিং ট্রিক", "content": "কীভাবে মডেলকে সরাসরি কাঙ্খিত ফরম্যাটে শুরু করানো যায়।" },
+            { "id": "5.2", "title": "Lesson 5.2: JSON vs YAML vs CSV", "content": "ডাটা ইন্টিগ্রেশনের জন্য সেরা ফরম্যাট সিলেকশন।" },
+            { "id": "5.3", "title": "Lesson 5.3: শার্ট-সার্কিট আউটপুট", "content": "অপ্রয়োজনীয় প্রি-অ্যাম্বেল বন্ধ করার মাস্টার হ্যাকস।" }
+          ]
+        },
+        {
+          "id": "mod-6",
+          "title": "Module 6: Prompt Chaining & Modularization",
+          "lessons": [
+            { "id": "6.1", "title": "Lesson 6.1: মনোলিথিক প্রম্পট বনাম চেইনড প্রম্পট", "content": "কেন ছোট ছোট ধাপে ভাগ করা বেশি টোকেন এফিশিয়েন্ট এবং নির্ভরযোগ্য।" },
+            { "id": "6.2", "title": "Lesson 6.2: পাইপলাইন ডিজাইন", "content": "এক মডেলের আউটপুট অন্য মডেলের ইনপুট হিসেবে ব্যবহারের আর্কিটেকচার।" }
+          ],
+          "bossSecret": "কন্ডিশনাল প্রম্পট চেইন (If-Then-Else logic in AI flows)।"
+        }
+      ]
+    },
+    {
+      "id": "phase-3",
+      "title": "Phase 3: Reason & Cognitive Engineering (চিন্তার ক্ষমতা)",
+      "description": "এআই-এর যুক্তি দেওয়ার ক্ষমতাকে নিয়ন্ত্রণ করা।",
+      "modules": [
+        {
+          "id": "mod-7",
+          "title": "Module 7: Reasoning Frameworks (CoT to ToT)",
+          "labType": "reasoning",
+          "lessons": [
+            { "id": "7.1", "title": "Lesson 7.1: Chain-of-Thought (CoT)", "content": "\"ধাপে ধাপে চিন্তা করো\" এর বাইরেও আরও গভীরে যাওয়া।" },
+            { "id": "7.2", "title": "Lesson 7.2: Tree-of-Thought (ToT)", "content": "মাল্টিপল রিজনিং পাথ জেনারেট করে সেরাটি ইভালুয়েট করা।" },
+            { "id": "7.3", "title": "Lesson 7.3: Self-Consistency", "content": "একই প্রশ্নে ৫ বার জিজ্ঞেস করে গাণিতিক নির্ভুলতা বাড়ানো।" }
+          ]
+        },
+        {
+          "id": "mod-8",
+          "title": "Module 8: Reflection & Self-Critique Patterns",
+          "lessons": [
+            { "id": "8.1", "title": "Lesson 8.1: ওয়ান-শট রিফ্লেকশন", "content": "\"তোমার উত্তরটি আবার চেক করো এবং ভুল থাকলে ঠিক করো\"।" },
+            { "id": "8.2", "title": "Lesson 8.2: ক্রিটিক-এজেন্ট প্যাটার্ন", "content": "একটি আলাদা এআই এজেন্ট দিয়ে অন্যটির কাজ রিভিউ করানো।" },
+            { "id": "8.3", "title": "Lesson 8.3: ইটারে티브 রিফাইনমেন্ট লুপ", "content": "যতক্ষণ সঠিক উত্তর না আসে ততক্ষণ অটো-লুপ চালানো।" }
+          ],
+          "bossSecret": "নেতিবাচক রিফ্লেকশন (Reverse Reflection) ব্যবহার করুন।"
+        }
+      ]
+    },
+    {
+      "id": "phase-4",
+      "title": "Phase 4: AI Coding Agents & SDD (ফিউচার অফ কোডিং)",
+      "description": "সফটওয়্যার ডেভেলপমেন্টের নতুন যুগ এবং এআই এজেন্টের ব্যবহার।",
+      "modules": [
+        {
+          "id": "mod-9",
+          "title": "Module 9: Vibe Coding vs Spec-Driven Development",
+          "labType": "sdd",
+          "lessons": [
+            { "id": "9.1", "title": "Lesson 9.1: হোয়াট ইজ ভাইব কোডিং? (Vibe Coding)", "content": "কেন কেবল আইডিয়া দিয়ে কোড করা বড় প্রজেক্টে বিপজ্জনক হতে পারে।" },
+            { "id": "9.2", "title": "Lesson 9.2: স্পেক-ড্রিভেন ডেভেলপমেন্ট (SDD)", "content": "প্রফেশনাল ইঞ্জিনিয়াররা যেভাবে SPEC.md দিয়ে অ্যাপ্লিকেশন বিল্ড করে।" }
+          ]
+        },
+        {
+          "id": "mod-10",
+          "title": "Module 10: Agentic IDE Mastery (Cursor & Claude Code)",
+          "lessons": [
+            { "id": "10.1", "title": "Lesson 10.1: Cursor Mastery & .cursorrules", "content": "কার্সরে অটোমেশন এবং নিয়ম সেট করার প্রো-মেথড।" },
+            { "id": "10.2", "title": "Lesson 10.2: Claude Code (CLI) ও অটোনোমাস এজেন্ট", "content": "টার্মিনাল থেকে সরাসরি পুরো অ্যাপ ডেভেলপ করার ক্ষমতা।" }
+          ],
+          "bossSecret": "এজেন্টিক ওয়ার্কফ্লো এবং লিন্টার এজেন্ট সেটআপ।"
+        }
+      ]
+    },
+    {
+      "id": "phase-5",
+      "title": "Phase 5: Agentic Orchestration & LangGraph (এজেন্টিক এআই)",
+      "description": "একাধিক এআই এজেন্টকে একটি টিমের মতো পরিচালনা করা।",
+      "modules": [
+        {
+          "id": "mod-11",
+          "title": "Module 11: Multi-Agent Architectures",
+          "labType": "agent-swarm",
+          "lessons": [
+            { "id": "11.1", "title": "Lesson 11.1: Hierarchical vs Decentralized Swarms", "content": "কখন সুপারভাইজার এজেন্ট লাগবে আর কখন অটোনোমাস টিম।" },
+            { "id": "11.2", "title": "Lesson 11.2: এআই হ্যান্ডঅফ মেকানিজম", "content": "এক এজেন্টের কাজ নির্ভুলভাবে অন্য এজেন্টের কাছে পাস করার আর্কিটেকচার।" }
+          ]
+        },
+        {
+          "id": "mod-12",
+          "title": "Module 12: LangGraph — The Industry Standard",
+          "lessons": [
+            { "id": "12.1", "title": "Lesson 12.1: স্টেট মেশিন ও সাইক্লিক ওয়ার্কফ্লো", "content": "কেন লুপ এবং মেমরি ছাড়া এজেন্টরা বুদ্ধিমান হতে পারে না।" },
+            { "id": "12.2", "title": "Lesson 12.2: কন্ডিশনাল এজ ও হিউম্যান-ইন-দ্য-লুপ", "content": "জটিল ডিসিশন মেকিং এবং মানুষের অ্যাপ্রুভালের সিস্টেম।" }
+          ],
+          "bossSecret": "নন-ডিটারমিনিস্টিক গ্রাফ হ্যান্ডলিং।"
+        }
+      ]
+    },
+    {
+      "id": "phase-6",
+      "title": "Phase 6: Retrieval & Context Engineering (স্মৃতি ও জ্ঞান)",
+      "description": "এআই এজেন্টকে আপনার নিজস্ব ডাটাবেস এবং জ্ঞানের ভাণ্ডার দেওয়া।",
+      "modules": [
+        {
+          "id": "mod-13",
+          "title": "Module 13: Retrieval & Context Engineering",
+          "labType": "memory",
+          "lessons": [
+            { "id": "13.1", "title": "Lesson 13.1: অ্যাডভান্সড আর-এ-জি (RAG)", "content": "ভেক্টর সার্চ থেকে হাইব্রিড রিট্রিভাল পর্যন্ত প্রফেশনাল মেথড।" },
+            { "id": "13.2", "title": "Lesson 13.2: GraphRAG ও নলেজ গ্রাফ", "content": "কিভাবে মাইক্রোসফট গ্রাফ-আরএজি প্রথাগত RAG কে পেছনে ফেলে দিচ্ছে।" }
+          ],
+          "bossSecret": "কনটেক্সট উইন্ডো ম্যানেজমেন্ট এবং টপ-কে অপ্টিমাইজেশন।"
+        }
+      ]
+    },
+    {
+      "id": "phase-7",
+      "title": "Phase 7: Production Engineering & Ops (সফটওয়্যার ইঞ্জিনিয়ারিং)",
+      "description": "এআই অ্যাপ্লিকেশনকে প্রোডাকশনে লঞ্চ এবং মেইনটেইন করা।",
+      "modules": [
+        {
+          "id": "mod-14",
+          "title": "Module 14: Evaluation-as-Code (Testing AI)",
+          "lessons": [
+            { "id": "14.1", "title": "Lesson 14.1: ভাইব চেক বনাম অটোমেটেড ইভালস (Evals)", "content": "কেন কেবল চোখে দেখে এআই-এর ভুল ধরা সম্ভব নয় এবং কিভাবে অটোমেটেড টেস্ট লিখবেন।" },
+            { "id": "14.2", "title": "Lesson 14.2: LLM-as-a-Judge প্যাটার্ন", "content": "একটি শক্তিশালী মডেল ব্যবহার করে অন্য একটি মডেলের আউটপুট চেক করা।" }
+          ]
+        },
+        {
+          "id": "mod-15",
+          "title": "Module 15: Observability & Tracing (LangSmith)",
+          "lessons": [
+            { "id": "15.1", "title": "Lesson 15.1: ট্রেসিং ও ডিবাগিং প্রোডাকশন এআই", "content": "এআই-এর ভেতরের প্রতিটি স্টেপ ট্র্যাক করার উপায়।" },
+            { "id": "15.2", "title": "Lesson 15.2: কস্ট ও ল্যাটেন্সি ট্র্যাকিং", "content": "এআই প্রোজেক্টের বাজেট এবং স্পিড অপ্টিমাইজ করা।" }
+          ],
+          "bossSecret": "ইউজার ফিডব্যাকের মাধ্যমে ইভালস ইমপ্রুভ করা।"
+        }
+      ]
+    },
+    {
+      "id": "phase-8",
+      "title": "Phase 8: Security & Boss-Level Hacks (নিরাপত্তা ও ভবিষ্যৎ)",
+      "description": "এআই হ্যাকিং থেকে বাঁচা এবং মাল্টিমোডাল অটোমেশন।",
+      "modules": [
+        {
+          "id": "mod-16",
+          "title": "Module 16: Prompt Injection & Defense",
+          "labType": "security",
+          "lessons": [
+            { "id": "16.1", "title": "Lesson 16.1: জেলব্রেকিং ও প্রম্পট ইনজেকশন", "content": "কিভাবে হ্যাকাররা আপনার প্রম্পট চুরি করতে পারে এবং তার বাস্তব ডেমো।" },
+            { "id": "16.2", "title": "Lesson 16.2: ডিফেন্স আর্কিটেকচার", "content": "জিরো-ট্রাস্ট ডিফেন্স সিস্টেম এবং ইনপুট স্যানিটেশন।" }
+          ]
+        },
+        {
+          "id": "mod-17",
+          "title": "Module 17: Multi-Modal Agentic Automation (n8n)",
+          "lessons": [
+            { "id": "17.1", "title": "Lesson 17.1: n8n ও মেক (Make) এর সাথে এআই ইন্টিগ্রেশন", "content": "এআই এজেন্টকে অটোমেশন টুলের হাত-পা হিসেবে ব্যবহার করা।" },
+            { "id": "17.2", "title": "Lesson 17.2: মাল্টি-মোডাল এজেন্ট ও ভিশন কন্ট্রোল", "content": "এআই যখন স্ক্রিন দেখে নিজে বাটন ক্লিক করে কাজ করে।" }
+          ],
+          "bossSecret": "এআই ইকোনমি এবং অটোমেশন সার্ভিস বিজনেস।"
+        }
+      ]
+    }
+  ]
+}

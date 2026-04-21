@@ -34,20 +34,20 @@ interface ModuleViewProps {
 const SimpleMarkdown: React.FC<{ content: string }> = ({ content }) => {
   const lines = content.split('\n');
   return (
-    <div className="markdown-content" style={{ lineHeight: '1.8', fontSize: '1.1rem', color: 'var(--accent-navy)', fontFamily: 'var(--font-bengali)' }}>
+    <div className="markdown-content" style={{ lineHeight: '1.9', fontSize: '1.15rem', color: 'var(--text-primary)', fontFamily: 'var(--font-bengali)' }}>
       {lines.map((line, i) => {
-        if (line.startsWith('### ')) return <h3 key={i} style={{ marginTop: '2rem', marginBottom: '1rem', fontSize: '1.5rem', color: 'var(--accent-navy)' }}>{line.replace('### ', '')}</h3>;
-        if (line.startsWith('#### ')) return <h4 key={i} style={{ marginTop: '1.5rem', marginBottom: '1rem', fontSize: '1.2rem', color: 'var(--accent-gold)' }}>{line.replace('#### ', '')}</h4>;
-        if (line.startsWith('* ')) return <li key={i} style={{ marginLeft: '1.5rem', marginBottom: '0.5rem' }}>{line.replace('* ', '')}</li>;
+        if (line.startsWith('### ')) return <h3 key={i} style={{ marginTop: '2.5rem', marginBottom: '1.25rem', fontSize: '1.75rem', color: 'var(--text-primary)', fontWeight: 800 }}>{line.replace('### ', '')}</h3>;
+        if (line.startsWith('#### ')) return <h4 key={i} style={{ marginTop: '1.75rem', marginBottom: '1.25rem', fontSize: '1.35rem', color: 'var(--accent-blue)', fontWeight: 700 }}>{line.replace('#### ', '')}</h4>;
+        if (line.startsWith('* ')) return <li key={i} style={{ marginLeft: '1.5rem', marginBottom: '0.75rem', color: 'var(--text-primary)' }}>{line.replace('* ', '')}</li>;
         if (line.trim() === '') return <br key={i} />;
         
         // Handle bold text **...**
         const parts = line.split(/(\*\*.*?\*\*)/g);
         return (
-          <p key={i} style={{ marginBottom: '1rem' }}>
+          <p key={i} style={{ marginBottom: '1.25rem' }}>
             {parts.map((part, j) => {
               if (part.startsWith('**') && part.endsWith('**')) {
-                return <strong key={j} style={{ color: 'var(--accent-gold)' }}>{part.slice(2, -2)}</strong>;
+                return <strong key={j} style={{ color: 'var(--accent-blue)', fontWeight: 700 }}>{part.slice(2, -2)}</strong>;
               }
               return part;
             })}
@@ -73,30 +73,35 @@ const ModuleView: React.FC<ModuleViewProps> = ({ module, phaseTitle, selectedLes
             alignItems: 'center', 
             gap: '0.5rem', 
             color: 'var(--text-secondary)', 
-            marginBottom: '2rem',
-            fontSize: '0.9rem' 
+            marginBottom: '2.5rem',
+            fontSize: '0.9rem',
+            fontWeight: 600,
+            background: 'transparent',
+            border: 'none',
+            cursor: 'pointer',
+            transition: 'var(--transition-smooth)'
           }}
         >
-          <ArrowLeft size={16} /> Back to Module Overview
+          <ArrowLeft size={18} /> Back to Module Overview
         </button>
         
-        <header style={{ marginBottom: '3rem' }}>
-          <div style={{ fontSize: '0.8rem', color: 'var(--accent-gold)', fontWeight: 700, marginBottom: '0.5rem' }}>
+        <header style={{ marginBottom: '3.5rem' }}>
+          <div style={{ fontSize: '0.85rem', color: 'var(--accent-blue)', fontWeight: 800, marginBottom: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
             {module.title}
           </div>
-          <h2 style={{ fontSize: '2.5rem', color: 'var(--accent-navy)', lineHeight: 1.2 }}>
+          <h2 style={{ fontSize: '3rem', color: 'var(--text-primary)', lineHeight: 1.1, fontWeight: 800, letterSpacing: '-0.03em' }}>
             {selectedLessonDeepData.title}
           </h2>
         </header>
 
-        <div className="premium-card" style={{ padding: '3rem' }}>
+        <div className="premium-card" style={{ padding: '3.5rem', border: '1.5px solid var(--border-color)', boxShadow: 'var(--shadow-md)' }}>
           <SimpleMarkdown content={selectedLessonDeepData.deepDive} />
         </div>
 
         {/* Floating Action for Lab if exists in Module */}
         {module.labType && (
-          <div style={{ marginTop: '3rem', borderTop: '1px solid var(--border-color)', paddingTop: '3rem' }}>
-            <h5 style={{ marginBottom: '1.5rem', color: 'var(--text-secondary)', fontSize: '0.8rem', textTransform: 'uppercase' }}>Interactive Lab for this Module</h5>
+          <div style={{ marginTop: '4rem', borderTop: '2px solid var(--border-color)', paddingTop: '4rem' }}>
+            <h5 style={{ marginBottom: '2rem', color: 'var(--text-secondary)', fontSize: '0.85rem', textTransform: 'uppercase', fontWeight: 700, letterSpacing: '0.1em' }}>Interactive Lab for this Module</h5>
             {module.labType === 'token' && <TokenViz />}
             {module.labType === 'efficiency' && (
               <EfficiencyLab 
@@ -118,18 +123,18 @@ const ModuleView: React.FC<ModuleViewProps> = ({ module, phaseTitle, selectedLes
 
   return (
     <div className="module-view" key={module.id} style={{ animation: 'fadeIn 0.5s ease-out' }}>
-      <header style={{ marginBottom: '3rem' }}>
+      <header style={{ marginBottom: '3.5rem' }}>
         <div style={{ 
-          fontSize: '0.8rem', 
-          color: 'var(--accent-gold)', 
-          fontWeight: 700, 
-          letterSpacing: '0.1em', 
+          fontSize: '0.85rem', 
+          color: 'var(--accent-blue)', 
+          fontWeight: 800, 
+          letterSpacing: '0.15em', 
           textTransform: 'uppercase',
-          marginBottom: '0.5rem'
+          marginBottom: '0.75rem'
         }}>
           {phaseTitle}
         </div>
-        <h2 style={{ fontSize: '2.5rem', lineHeight: '1.2', color: 'var(--accent-navy)' }}>
+        <h2 style={{ fontSize: '3.25rem', lineHeight: '1.1', color: 'var(--text-primary)', fontWeight: 900, letterSpacing: '-0.04em' }}>
           {module.title}
         </h2>
       </header>
@@ -149,17 +154,27 @@ const ModuleView: React.FC<ModuleViewProps> = ({ module, phaseTitle, selectedLes
       {module.labType === 'sdd' && <SpecVisualizer />}
       {module.labType === 'security' && <SecuritySandbox />}
 
-      <div className="lesson-grid" style={{ display: 'grid', gap: '1.5rem', margin: '3rem 0' }}>
+      <div className="lesson-grid" style={{ display: 'grid', gap: '2rem', margin: '4rem 0' }}>
         {module.lessons.map((lesson) => (
-          <div key={lesson.id} className="premium-card" style={{ padding: '2rem', display: 'flex', gap: '1.5rem' }}>
-            <div style={{ color: 'var(--accent-gold)' }}>
-              <PlayCircle size={28} />
+          <div key={lesson.id} 
+            className="premium-card" 
+            onClick={() => onSelectLesson(lesson.id)}
+            style={{ 
+              padding: '2.5rem', 
+              display: 'flex', 
+              gap: '2rem', 
+              cursor: 'pointer',
+              border: '1.5px solid var(--border-color)',
+              boxShadow: 'var(--shadow-sm)'
+            }}>
+            <div style={{ color: 'var(--accent-blue)', display: 'flex', alignItems: 'center' }}>
+              <PlayCircle size={32} />
             </div>
             <div>
-              <h4 style={{ fontSize: '1.25rem', marginBottom: '0.75rem', color: 'var(--accent-navy)' }}>
+              <h4 style={{ fontSize: '1.4rem', marginBottom: '0.75rem', color: 'var(--text-primary)', fontWeight: 800 }}>
                 {lesson.title}
               </h4>
-              <p style={{ color: 'var(--text-secondary)', lineHeight: '1.6', fontSize: '1.05rem', fontFamily: 'var(--font-bengali)' }}>
+              <p style={{ color: 'var(--text-secondary)', lineHeight: '1.7', fontSize: '1.1rem', fontFamily: 'var(--font-bengali)', fontWeight: 500 }}>
                 {lesson.content}
               </p>
             </div>
@@ -169,44 +184,45 @@ const ModuleView: React.FC<ModuleViewProps> = ({ module, phaseTitle, selectedLes
 
       {module.bossSecret && (
         <section style={{ 
-          marginTop: '4rem', 
-          padding: '2.5rem', 
-          backgroundColor: 'var(--accent-navy)', 
-          borderRadius: '24px',
+          marginTop: '5rem', 
+          padding: '3.5rem', 
+          background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)', 
+          borderRadius: '32px',
           color: 'white',
-          boxShadow: '0 20px 40px rgba(0,29,74,0.15)',
+          boxShadow: '0 25px 50px -12px rgba(15, 23, 42, 0.4)',
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
+          border: '1px solid rgba(255,255,255,0.1)'
         }}>
           <div style={{ 
             position: 'absolute', 
-            top: '-20px', 
-            right: '-20px', 
-            opacity: 0.1, 
+            top: '-30px', 
+            right: '-30px', 
+            opacity: 0.15, 
             transform: 'rotate(15deg)' 
           }}>
-            <Lock size={150} color="white" />
+            <Lock size={180} color="white" />
           </div>
           
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem', color: 'var(--accent-gold)' }}>
-            <Sparkles size={20} />
-            <span style={{ fontWeight: 700, textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '0.1em' }}>Boss-Level Secret</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.5rem', color: '#FCD34D' }}>
+            <Sparkles size={24} />
+            <span style={{ fontWeight: 800, textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '0.2em' }}>Boss-Level Secret</span>
           </div>
           
-          <h3 style={{ fontSize: '1.75rem', lineHeight: '1.4', fontFamily: 'var(--font-bengali)' }}>
+          <h3 style={{ fontSize: '2rem', lineHeight: '1.4', fontFamily: 'var(--font-bengali)', fontWeight: 700, position: 'relative', zIndex: 1 }}>
             {module.bossSecret}
           </h3>
         </section>
       )}
 
-      <footer style={{ marginTop: '5rem', padding: '2rem 0', borderTop: '1px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', color: 'var(--text-secondary)', fontSize: '0.8rem' }}>
-        <p>© 2026 Boss-Level AI Mastery</p>
-        <p>Premium Education Experience</p>
+      <footer style={{ marginTop: '7rem', padding: '3rem 0', borderTop: '2px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', color: 'var(--text-secondary)', fontSize: '0.9rem', fontWeight: 600 }}>
+        <p>© 2026 Boss-Level AI Mastery Platform</p>
+        <p>Premium High-Performance Learning</p>
       </footer>
       
       <style>{`
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
+          from { opacity: 0; transform: translateY(15px); }
           to { opacity: 1; transform: translateY(0); }
         }
       `}</style>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, ChevronRight, CheckSquare, Square, Terminal, Code } from 'lucide-react';
+import { FileText, ChevronRight, CheckSquare, Square, Terminal, Code, Database, Monitor, ShieldCheck } from 'lucide-react';
 
 const SpecVisualizer: React.FC = () => {
   const [activeTask, setActiveTask] = useState(0);

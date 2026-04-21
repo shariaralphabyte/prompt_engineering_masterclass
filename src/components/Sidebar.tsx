@@ -30,43 +30,67 @@ const Sidebar: React.FC<SidebarProps> = ({ curriculum, selectedModuleId, selecte
       top: 0, 
       display: 'flex', 
       flexDirection: 'column', 
-      borderRight: '1px solid var(--border-color)',
+      borderRight: '1.5px solid var(--border-color)',
       overflowY: 'auto',
-      zIndex: 100
+      zIndex: 100,
+      background: 'white'
     }}>
-      <div style={{ padding: '2rem 1.5rem', borderBottom: '1px solid var(--border-color)' }}>
+      <div style={{ padding: '2.5rem 1.5rem', borderBottom: '1px solid var(--border-color)' }}>
         <h1 style={{ 
-          fontSize: '1.25rem', 
+          fontSize: '1.35rem', 
           display: 'flex', 
           alignItems: 'center', 
           gap: '0.75rem',
-          color: 'var(--accent-navy)'
+          color: 'var(--text-primary)',
+          fontWeight: 800,
+          letterSpacing: '-0.02em'
         }}>
-          <Hexagon size={24} fill="var(--accent-navy)" />
-          Boss-Level AI
+          <Hexagon size={26} fill="var(--accent-blue)" color="var(--accent-blue)" />
+          Boss Level AI
         </h1>
-        <p style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.25rem', letterSpacing: '0.05em', textTransform: 'uppercase' }}>
-          0 to Production Mastery
+        <p style={{ 
+          fontSize: '0.7rem', 
+          color: 'var(--text-secondary)', 
+          marginTop: '0.5rem', 
+          letterSpacing: '0.12em', 
+          textTransform: 'uppercase',
+          fontWeight: 700 
+        }}>
+          Masterclass Platform
         </p>
       </div>
 
-      <nav style={{ padding: '1.5rem 1rem' }}>
+      <nav style={{ padding: '2rem 0.75rem' }}>
         {curriculum.map((phase) => (
-          <div key={phase.id} style={{ marginBottom: '2rem' }}>
+          <div key={phase.id} style={{ marginBottom: '2.5rem' }}>
             <h3 style={{ 
-              fontSize: '0.85rem', 
-              color: 'var(--accent-gold)', 
-              marginBottom: '0.75rem', 
-              paddingLeft: '0.5rem',
-              fontWeight: 600
+              fontSize: '0.75rem', 
+              color: 'var(--text-secondary)', 
+              marginBottom: '1rem', 
+              paddingLeft: '1rem',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em'
             }}>
               {phase.title}
             </h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               {phase.modules.map((module) => {
                 const isActive = selectedModuleId === module.id;
                 return (
-                  <div key={module.id}>
+                  <div key={module.id} style={{ position: 'relative' }}>
+                    {isActive && (
+                      <div style={{ 
+                        position: 'absolute', 
+                        left: '-0.75rem', 
+                        top: '15%', 
+                        height: '70%', 
+                        width: '4px', 
+                        background: 'var(--accent-blue)', 
+                        borderRadius: '0 4px 4px 0',
+                        boxShadow: '0 0 10px rgba(37, 99, 235, 0.4)'
+                      }} />
+                    )}
                     <button
                       onClick={() => onSelectModule(module.id)}
                       style={{
@@ -74,36 +98,49 @@ const Sidebar: React.FC<SidebarProps> = ({ curriculum, selectedModuleId, selecte
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'space-between',
-                        padding: '0.75rem 0.5rem',
-                        borderRadius: '8px',
+                        padding: '0.85rem 1rem',
+                        borderRadius: '10px',
                         textAlign: 'left',
-                        fontSize: '0.9rem',
-                        color: isActive ? 'var(--bg-secondary)' : 'var(--text-primary)',
-                        backgroundColor: isActive ? 'var(--accent-navy)' : 'transparent',
+                        fontSize: '0.92rem',
+                        fontWeight: isActive ? 600 : 500,
+                        color: isActive ? 'var(--active-text)' : 'var(--text-primary)',
+                        backgroundColor: isActive ? 'var(--active-bg)' : 'transparent',
                         transition: 'var(--transition-smooth)',
-                        cursor: 'pointer'
+                        cursor: 'pointer',
+                        border: 'none',
+                        outline: 'none'
                       }}
                     >
-                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <BookOpen size={16} opacity={isActive ? 1 : 0.5} />
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                        <BookOpen size={18} opacity={isActive ? 1 : 0.4} />
                         {module.title}
                       </span>
-                      {isActive && <ChevronRight size={14} />}
+                      {isActive && <ChevronRight size={16} />}
                     </button>
                     
                     {/* Lesson Sub-menu */}
                     {isActive && (module as any).lessons && (
-                      <div style={{ marginLeft: '2rem', marginTop: '0.5rem', borderLeft: '1px solid var(--border-color)', display: 'flex', flexDirection: 'column', gap: '0.1rem' }}>
+                      <div style={{ 
+                        marginLeft: '2.5rem', 
+                        marginTop: '0.5rem', 
+                        borderLeft: '1.5px solid var(--border-color)', 
+                        display: 'flex', 
+                        flexDirection: 'column', 
+                        gap: '0.2rem' 
+                      }}>
                         {(module as any).lessons.map((lesson: any) => (
                           <button
                             key={lesson.id}
                             onClick={() => onSelectLesson(lesson.id)}
                             style={{
-                              padding: '0.5rem 1rem',
-                              fontSize: '0.8rem',
+                              padding: '0.6rem 1.25rem',
+                              fontSize: '0.82rem',
                               textAlign: 'left',
-                              color: selectedLessonId === lesson.id ? 'var(--accent-gold)' : 'var(--text-secondary)',
-                              fontWeight: selectedLessonId === lesson.id ? 600 : 400,
+                              color: selectedLessonId === lesson.id ? 'var(--accent-blue)' : 'var(--text-secondary)',
+                              fontWeight: selectedLessonId === lesson.id ? 700 : 500,
+                              background: 'transparent',
+                              border: 'none',
+                              cursor: 'pointer',
                               transition: 'var(--transition-smooth)'
                             }}
                           >
@@ -121,17 +158,30 @@ const Sidebar: React.FC<SidebarProps> = ({ curriculum, selectedModuleId, selecte
       </nav>
 
       <div style={{ marginTop: 'auto', padding: '1.5rem', borderTop: '1px solid var(--border-color)' }}>
-        <div className="glass" style={{ 
-          padding: '1rem', 
-          borderRadius: '12px', 
-          fontSize: '0.8rem', 
-          color: 'var(--accent-navy)',
+        <div style={{ 
+          padding: '1.25rem', 
+          borderRadius: '14px', 
+          fontSize: '0.82rem', 
+          color: 'var(--text-primary)',
           display: 'flex',
           alignItems: 'center',
-          gap: '0.5rem'
+          gap: '0.75rem',
+          background: 'var(--bg-primary)',
+          fontWeight: 600,
+          border: '1px solid var(--border-color)'
         }}>
-          <Star size={14} fill="var(--accent-gold)" color="var(--accent-gold)" />
-          Premium Masterclass
+          <div style={{ 
+            width: '32px', 
+            height: '32px', 
+            borderRadius: '8px', 
+            background: 'var(--accent-gold-light)', 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center' 
+          }}>
+            <Star size={16} fill="var(--accent-gold)" color="var(--accent-gold)" />
+          </div>
+          Premium System
         </div>
       </div>
     </aside>

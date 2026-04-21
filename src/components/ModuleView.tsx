@@ -224,9 +224,54 @@ const ModuleView: React.FC<ModuleViewProps> = ({ module, phaseTitle, selectedLes
         </section>
       )}
 
-      <footer style={{ marginTop: '7rem', padding: '3rem 0', borderTop: '2px solid var(--border-color)', display: 'flex', justifyContent: 'space-between', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>
-        <p>© 2026 Boss-Level AI Mastery Platform</p>
-        <p>Premium High-Performance Learning</p>
+      <footer style={{ 
+        marginTop: '7rem', 
+        padding: '4rem 0', 
+        borderTop: '2px solid var(--border-color)', 
+        display: 'flex', 
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '1.5rem',
+        color: 'var(--text-secondary)'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <h4 style={{ fontSize: '1.1rem', color: 'var(--text-primary)', marginBottom: '0.5rem' }}>Boss-Level AI Mastery Platform</h4>
+          <p style={{ fontSize: '0.85rem' }}>Premium High-Performance Learning Experience</p>
+        </div>
+        
+        <div style={{ 
+          background: 'var(--active-bg)', 
+          padding: '1.5rem 3rem', 
+          borderRadius: '20px', 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center',
+          gap: '0.5rem',
+          border: '1px solid var(--border-color)'
+        }}>
+          <div style={{ fontWeight: 800, color: 'var(--text-primary)', fontSize: '1rem' }}>
+            Developed by Shariar Hossain
+          </div>
+          <a 
+            href="https://www.youtube.com/@codeprobro" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{ 
+              color: 'var(--accent-blue)', 
+              textDecoration: 'none',
+              fontWeight: 700,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '0.5rem'
+            }}
+          >
+            <PlayCircle size={18} /> Subscribe YouTube: @codeprobro
+          </a>
+        </div>
+
+        <p style={{ fontSize: '0.75rem', opacity: 0.6 }}>
+          © 2026 Developed by Shariar Hossain. All Rights Reserved.
+        </p>
       </footer>
     </div>
   );

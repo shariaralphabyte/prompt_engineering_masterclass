@@ -178,21 +178,10 @@ const Sidebar: React.FC<SidebarProps> = ({ curriculum, selectedModuleId, selecte
         ))}
       </nav>
 
-      <div style={{ marginTop: 'auto', padding: '1.5rem', borderTop: '1px solid var(--border-color)', bg: 'white' }}>
-        <div style={{ 
-          padding: '1rem', 
-          borderRadius: '12px', 
-          fontSize: '0.8rem', 
-          color: 'var(--text-primary)',
-          display: 'flex',
-          alignItems: 'center',
-          gap: '0.75rem',
-          background: 'var(--active-bg)',
-          fontWeight: 700
-        }}>
-          <Star size={16} fill="var(--accent-gold)" color="var(--accent-gold)" />
-          Boss Level Certified
-        </div>
+      <div style={{ marginTop: 'auto', padding: '1.5rem', borderTop: '1px solid var(--border-color)', background: 'white' }}>
+        <p style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', textAlign: 'center', fontWeight: 600 }}>
+          © 2026 Boss-Level AI Mastery
+        </p>
       </div>
     </aside>
   );

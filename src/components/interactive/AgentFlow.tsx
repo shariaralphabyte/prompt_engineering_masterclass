@@ -1,23 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import { User, ShieldCheck, Search, PenTool, Database, Cpu, ArrowRight } from 'lucide-react';
 
-const AgentFlow: React.FC = () => {
+interface Agent {
+  id: string;
+  name: string;
+  icon: any;
+  color: string;
+  pos: { x: number; y: number };
+}
+
+interface AgentFlowProps {
+  agents?: Agent[];
+  statusSteps?: string[];
+  title?: string;
+}
+
+const AgentFlow: React.FC<AgentFlowProps> = ({
+  agents: initialAgents,
+  statusSteps: initialSteps,
+  title = "Agent Swarm Simulator: Hierarchical Pattern"
+}) => {
   const [step, setStep] = useState(0);
 
-  // Auto-animate steps
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setStep((prev) => (prev + 1) % 5);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const agents = [
+  const defaultAgents: Agent[] = [
     { id: 'supervisor', name: 'Agent Supervisor', icon: ShieldCheck, color: 'var(--accent-navy)', pos: { x: 50, y: 15 } },
     { id: 'researcher', name: 'Research Specialist', icon: Search, color: 'var(--accent-gold)', pos: { x: 20, y: 60 } },
     { id: 'coder', name: 'Coding Expert', icon: Cpu, color: 'var(--accent-gold)', pos: { x: 50, y: 80 } },
     { id: 'writer', name: 'Content Writer', icon: PenTool, color: 'var(--accent-gold)', pos: { x: 80, y: 60 } },
   ];
+
+  const defaultSteps = [
+    "সুপারভাইজার ইউজার প্রম্পট এনালাইসিস করে টাস্ক ডেলিগেট করছে।",
+    "রিসার্চ এজেন্ট ইন্টারনেট থেকে লেটেস্ট তথ্য সংগ্রহ করছে।",
+    "কোডিং এজেন্ট আর্কিটেকচার অনুযায়ী কোড বেস তৈরি করছে।",
+    "রাইটিং এজেন্ট সব তথ্য সাজিয়ে আউটপুট জেনারেট করছে।",
+    "ফাইনাল রিভিউ ও আউটপুট ডেলিভারি।"
+  ];
+
+  const agents = initialAgents || defaultAgents;
+  const statusSteps = initialSteps || defaultSteps;
 
   return (
     <div className="premium-card" style={{ padding: '3rem', marginTop: '2rem', minHeight: '400px', background: '#F8F9FF', overflow: 'hidden', position: 'relative' }}>

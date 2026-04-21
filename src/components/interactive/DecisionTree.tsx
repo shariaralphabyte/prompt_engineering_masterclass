@@ -2,17 +2,25 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HelpCircle, ArrowRight, RefreshCcw, CheckCircle2 } from 'lucide-react';
 
+interface DecisionOption {
+  label: string;
+  nextId?: string;
+  result?: string;
+}
+
 interface DecisionNode {
   id: string;
   question: string;
-  options: {
-    label: string;
-    nextId?: string;
-    result?: string;
-  }[];
+  options: DecisionOption[];
 }
 
-const treeData: Record<string, DecisionNode> = {
+interface DecisionTreeProps {
+  data?: Record<string, DecisionNode>;
+  title?: string;
+  banner?: string;
+}
+
+const defaultTree: Record<string, DecisionNode> = {
   start: {
     id: 'start',
     question: "আপনার কাজের মূল লক্ষ্য কী?",
@@ -47,13 +55,17 @@ const treeData: Record<string, DecisionNode> = {
   }
 };
 
-export const DecisionTree: React.FC = () => {
+const DecisionTree: React.FC<DecisionTreeProps> = ({ 
+  data = defaultTree, 
+  title = "ডিসিশন ট্রি সিমুলেটর",
+  banner = "প্রজেক্টের শুরুতেই সঠিক ফ্রেমওয়ার্ক এবং মেথডোলজি বেছে নেওয়া অর্ধেক যুদ্ধের সমান। ভাইব কোডিং দিয়ে শুরু করলেও প্রোডাকশনে যাওয়ার আগে অবশ্যই SDD (SPEC-Driven Development) ফলো করা উচিত।"
+}) => {
   const [currentNodeId, setCurrentNodeId] = useState('start');
   const [history, setHistory] = useState<string[]>([]);
 
-  const node = treeData[currentNodeId];
+  const node = data[currentNodeId] || data['start'];
 
-  const handleOptionClick = (option: typeof node.options[0]) => {
+  const handleOptionClick = (option: DecisionOption) => {
     if (option.nextId) {
       setHistory([...history, currentNodeId]);
       setCurrentNodeId(option.nextId);
@@ -72,7 +84,7 @@ export const DecisionTree: React.FC = () => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2 text-emerald-400">
           <HelpCircle size={18} />
-          <span className="text-sm font-bold uppercase tracking-widest">ডিসিশন ট্রি সিমুলেটর</span>
+          <span className="text-sm font-bold uppercase tracking-widest">{title}</span>
         </div>
         <button 
           onClick={reset}
@@ -139,8 +151,13 @@ export const DecisionTree: React.FC = () => {
       </div>
 
       <div className="p-4 bg-emerald-500/5 border border-emerald-500/20 rounded-xl text-slate-400 text-xs italic leading-relaxed">
-        <strong>সতর্কতা:</strong> প্রজেক্টের শুরুতেই সঠিক ফ্রেমওয়ার্ক এবং মেথডোলজি বেছে নেওয়া অর্ধেক যুদ্ধের সমান। ভাইব কোডিং দিয়ে শুরু করলেও প্রোডাকশনে যাওয়ার আগে অবশ্যই SDD (SPEC-Driven Development) ফলো করা উচিত।
+        <strong>সতর্কতা:</strong> {banner}
       </div>
     </div>
   );
 };
+
+export default DecisionTree;
+
+
+export default DecisionTree;

@@ -19,6 +19,7 @@
         {
           "id": "mod-2",
           "title": "Module 2: The Multi-Model Strategy",
+          "labType": "model-comp",
           "lessons": [
             { "id": "2.1", "title": "Lesson 2.1: Claude Opus 4.7 vs GPT-4o vs Gemini 3 Pro", "content": "কোন মডেল কখন বেছে নেবেন (রিয়েল-ওয়ার্ল্ড কেস)।" },
             { "id": "2.2", "title": "Lesson 2.2: Reasoning Models (o1/o1-mini/o3)", "content": "সাইলেন্ট রিজনিং এর পেছনের ডাইনামিক্স।" },
@@ -40,11 +41,12 @@
     {
       "id": "phase-2",
       "title": "Phase 2: Advanced Structural Prompting (কারিগরি দক্ষতা)",
-      "description": "এখানে আমরা প্রম্পটকে একটি সফটওয়্যার কোড হিসেবে ট্রিট করা শিখবো।",
+      "description": "এখানে আমরা প্রম্পটকে একটি সফটওয়্যায় কোড হিসেবে ট্রিট করা শিখবো।",
       "modules": [
         {
           "id": "mod-4",
           "title": "Module 4: XML & Markdown Precision",
+          "labType": "matrix",
           "lessons": [
             { "id": "4.1", "title": "Lesson 4.1: XML Tagging Strategy", "content": "XML আর্কিটেকচার ব্যবহার করে প্রম্পটকে আরও প্রফেশনাল এবং শক্তিশালী করার উপায়।" },
             { "id": "4.2", "title": "Lesson 4.2: ডেলিমিটার ও সেকশন সেপারেশন", "content": "মডেলকে \"বিভ্রান্তি\" থেকে বাঁচানোর জন্য ডেলিমিটার ব্যবহারের মাস্টারি।" },
@@ -54,6 +56,7 @@
         {
           "id": "mod-5",
           "title": "Module 5: Prefilling & Constrained Output",
+          "labType": "validator",
           "lessons": [
             { "id": "5.1", "title": "Lesson 5.1: অ্যাসিস্ট্যান্ট রেসপন্স প্রি-ফিলিং ট্রিক", "content": "কীভাবে মডেলকে সরাসরি কাঙ্খিত ফরম্যাটে শুরু করানো যায়।" },
             { "id": "5.2", "title": "Lesson 5.2: JSON vs YAML vs CSV", "content": "ডাটা ইন্টিগ্রেশনের জন্য সেরা ফরম্যাট সিলেকশন।" },
@@ -63,6 +66,7 @@
         {
           "id": "mod-6",
           "title": "Module 6: Prompt Chaining & Modularization",
+          "labType": "pipeline",
           "lessons": [
             { "id": "6.1", "title": "Lesson 6.1: মনোলিথিক প্রম্পট বনাম চেইনড প্রম্পট", "content": "কেন ছোট ছোট ধাপে ভাগ করা বেশি টোকেন এফিশিয়েন্ট এবং নির্ভরযোগ্য।" },
             { "id": "6.2", "title": "Lesson 6.2: পাইপলাইন ডিজাইন", "content": "এক মডেলের আউটপুট অন্য মডেলের ইনপুট হিসেবে ব্যবহারের আর্কিটেকচার।" }
@@ -89,6 +93,7 @@
         {
           "id": "mod-8",
           "title": "Module 8: Reflection & Self-Critique Patterns",
+          "labType": "decision",
           "lessons": [
             { "id": "8.1", "title": "Lesson 8.1: ওয়ান-শট রিফ্লেকশন", "content": "\"তোমার উত্তরটি আবার চেক করো এবং ভুল থাকলে ঠিক করো\"।" },
             { "id": "8.2", "title": "Lesson 8.2: ক্রিটিক-এজেন্ট প্যাটার্ন", "content": "একটি আলাদা এআই এজেন্ট দিয়ে অন্যটির কাজ রিভিউ করানো।" },
@@ -115,6 +120,7 @@
         {
           "id": "mod-10",
           "title": "Module 10: Agentic IDE Mastery (Cursor & Claude Code)",
+          "labType": "cheatsheet",
           "lessons": [
             { "id": "10.1", "title": "Lesson 10.1: Cursor Mastery & .cursorrules", "content": "কার্সরে অটোমেশন এবং নিয়ম সেট করার প্রো-মেথড।" },
             { "id": "10.2", "title": "Lesson 10.2: Claude Code (CLI) ও অটোনোমাস এজেন্ট", "content": "টার্মিনাল থেকে সরাসরি পুরো অ্যাপ ডেভেলপ করার ক্ষমতা।" }
@@ -140,6 +146,7 @@
         {
           "id": "mod-12",
           "title": "Module 12: LangGraph — The Industry Standard",
+          "labType": "graph",
           "lessons": [
             { "id": "12.1", "title": "Lesson 12.1: স্টেট মেশিন ও সাইক্লিক ওয়ার্কফ্লো", "content": "কেন লুপ এবং মেমরি ছাড়া এজেন্টরা বুদ্ধিমান হতে পারে না।" },
             { "id": "12.2", "title": "Lesson 12.2: কন্ডিশনাল এজ ও হিউম্যান-ইন-দ্য-লুপ", "content": "জটিল ডিসিশন মেকিং এবং মানুষের অ্যাপ্রুভালের সিস্টেম।" }
@@ -173,6 +180,7 @@
         {
           "id": "mod-14",
           "title": "Module 14: Evaluation-as-Code (Testing AI)",
+          "labType": "eval",
           "lessons": [
             { "id": "14.1", "title": "Lesson 14.1: ভাইব চেক বনাম অটোমেটেড ইভালস (Evals)", "content": "কেন কেবল চোখে দেখে এআই-এর ভুল ধরা সম্ভব নয় এবং কিভাবে অটোমেটেড টেস্ট লিখবেন।" },
             { "id": "14.2", "title": "Lesson 14.2: LLM-as-a-Judge প্যাটার্ন", "content": "একটি শক্তিশালী মডেল ব্যবহার করে অন্য একটি মডেলের আউটপুট চেক করা।" }
@@ -181,6 +189,7 @@
         {
           "id": "mod-15",
           "title": "Module 15: Observability & Tracing (LangSmith)",
+          "labType": "timeline",
           "lessons": [
             { "id": "15.1", "title": "Lesson 15.1: ট্রেসিং ও ডিবাগিং প্রোডাকশন এআই", "content": "এআই-এর ভেতরের প্রতিটি স্টেপ ট্র্যাক করার উপায়।" },
             { "id": "15.2", "title": "Lesson 15.2: কস্ট ও ল্যাটেন্সি ট্র্যাকিং", "content": "এআই প্রোজেক্টের বাজেট এবং স্পিড অপ্টিমাইজ করা।" }
@@ -206,6 +215,7 @@
         {
           "id": "mod-17",
           "title": "Module 17: Multi-Modal Agentic Automation (n8n)",
+          "labType": "multimodal",
           "lessons": [
             { "id": "17.1", "title": "Lesson 17.1: n8n ও মেক (Make) এর সাথে এআই ইন্টিগ্রেশন", "content": "এআই এজেন্টকে অটোমেশন টুলের হাত-পা হিসেবে ব্যবহার করা।" },
             { "id": "17.2", "title": "Lesson 17.2: মাল্টি-মোডাল এজেন্ট ও ভিশন কন্ট্রোল", "content": "এআই যখন স্ক্রিন দেখে নিজে বাটন ক্লিক করে কাজ করে।" }

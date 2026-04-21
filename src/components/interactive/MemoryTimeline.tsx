@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Database, Cpu, MessageSquare, ArrowDown, CheckCircle2 } from 'lucide-react';
 
-const MemoryTimeline: React.FC = () => {
+interface Step {
+  id: string;
+  title: string;
+  desc: string;
+  icon: any;
+}
+
+interface MemoryTimelineProps {
+  steps?: Step[];
+  bossSecret?: string;
+  title?: string;
+}
+
+const MemoryTimeline: React.FC<MemoryTimelineProps> = ({
+  steps: initialSteps,
+  bossSecret = "RAG (Retrieval-Augmented Generation) ব্যবহারের ফলে মডেল হ্যালুসিনেশন করে না। কারণ সে উত্তর দেওয়ার আগে আপনার ভেক্টর ডাটাবেস থেকে তথ্য নিয়ে আসে।",
+  title = "RAG Sequence Visualizer: The Memory Loop"
+}) => {
   const [activeStep, setActiveStep] = useState(0);
 
-  const steps = [
+  const defaultSteps: Step[] = [
     { id: 'query', title: 'User Query', desc: 'মডেল প্রোম্পটটি এনালাইজ করছে।', icon: MessageSquare },
     { id: 'search', title: 'Vector Search', desc: 'ডাটাবেস থেকে রিলেভেন্ট তথ্য খোঁজা হচ্ছে।', icon: Search },
     { id: 'context', title: 'Context Injection', desc: 'পাওয়ানো তথ্য প্রম্পটে যুক্ত করা হচ্ছে।', icon: Database },
@@ -12,12 +29,14 @@ const MemoryTimeline: React.FC = () => {
     { id: 'output', title: 'Final Output', desc: 'সঠিক এবং গ্রাউন্ডেড উত্তর জেনারেট হয়েছে।', icon: CheckCircle2 },
   ];
 
+  const steps = initialSteps || defaultSteps;
+
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveStep((prev) => (prev + 1) % steps.length);
     }, 2500);
     return () => clearInterval(timer);
-  }, []);
+  }, [steps.length]);
 
   return (
     <div className="premium-card" style={{ padding: '3rem', marginTop: '2rem', background: 'linear-gradient(180deg, #FAFAFB 0%, #FFFFFF 100%)' }}>

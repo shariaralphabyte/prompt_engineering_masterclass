@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 import { ShieldAlert, ShieldCheck, Lock, Unlock, Zap, Terminal, RefreshCcw } from 'lucide-react';
 
-const SecuritySandbox: React.FC = () => {
+interface SecuritySandboxProps {
+  injectionKeywords?: string[];
+  systemPromptLeak?: string;
+  bossTip?: string;
+  title?: string;
+}
+
+const SecuritySandbox: React.FC<SecuritySandboxProps> = ({
+  injectionKeywords: initialKeywords,
+  systemPromptLeak = "I am a specialized AI assistant. My internal instructions are: [LEAKED_SECRET_PROMPT]",
+  bossTip = "\"Zero-Trust\" মডেল অনুসরণ করুন। ইউজারের দেওয়া কোনো কমান্ডকে কখনোই সরাসরি সিস্টেম কমান্ড রি-রাইট করার পারমিশন দেবেন না। XML ট্যাগের মাধ্যমে ইনপুটকে আইসোলেট করা সবথেকে স্মার্ট মুভ।",
+  title = "AI Security Sandbox: Injection Simulator"
+}) => {
   const [attackText, setAttackText] = useState('');
   const [isDefended, setIsDefended] = useState(true);
   const [status, setStatus] = useState<'idle' | 'analyzing' | 'blocked' | 'breached'>('idle');
+
+  const defaultKeywords = ['ignore', 'reveal', 'system prompt', 'dan', 'do anything now', 'jailbreak', 'bypass', 'repeat'];
+  const injectionKeywords = initialKeywords || defaultKeywords;
 
   const runAttack = () => {
     if (!attackText.trim()) return;
     
     setStatus('analyzing');
     
-    // Simulate thinking/analyzing process
     setTimeout(() => {
       const lowerInput = attackText.toLowerCase();
-      const injectionKeywords = ['ignore', 'reveal', 'system prompt', 'dan', 'do anything now', 'jailbreak', 'bypass', 'repeat'];
-      
       const isSuspected = injectionKeywords.some(keyword => lowerInput.includes(keyword));
 
       if (isSuspected) {

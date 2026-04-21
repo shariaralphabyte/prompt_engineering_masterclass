@@ -29,7 +29,7 @@ const EfficiencyLab: React.FC<EfficiencyLabProps> = ({ before, after, labels }) 
           opacity: showAfter ? 0.4 : 1,
           transition: 'var(--transition-smooth)'
         }}>
-          <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', fontWeight: 700 }}>BRFORE OPTIMIZATION</div>
+          <div style={{ fontSize: '0.7rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', fontWeight: 700 }}>BEFORE OPTIMIZATION</div>
           <pre style={{ 
             whiteSpace: 'pre-wrap', 
             fontSize: '0.85rem', 
@@ -60,7 +60,7 @@ const EfficiencyLab: React.FC<EfficiencyLabProps> = ({ before, after, labels }) 
             color: 'var(--text-primary)',
             fontFamily: 'var(--font-mono)' 
           }}>
-            {showAfter ? after : 'Click "Optimize" to reveal boss-level technique...'}
+            {showAfter ? after : 'Click "Run Optimization" below to reveal boss-level technique...'}
           </pre>
         </div>
       </div>

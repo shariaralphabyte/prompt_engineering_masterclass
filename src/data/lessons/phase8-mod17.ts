@@ -143,5 +143,14 @@ AI Agent:
       `
     }
   ],
-  bossSecret: "AI Automation Service Business। আপনি যা শিখলেন তা দিয়ে একটি বিজনেস শুরু করতে পারেন: কোম্পানিগুলোর জন্য AI Automation সেটআপ করা। একটি n8n + Claude সেটআপ করে দিলে মাসে $500-$2000 চার্জ করতে পারেন। ৫টি ক্লায়েন্ট = $2500-$10,000/মাস রিকারিং আয়। এটি ২০২৫-এর সবথেকে লাভজনক ফ্রিল্যান্সিং স্কিল।"
+  bossSecret: "AI Automation Service Business। আপনি যা শিখলেন তা দিয়ে একটি বিজনেস শুরু করতে পারেন: কোম্পানিগুলোর জন্য AI Automation সেটআপ করা। একটি n8n + Claude সেটআপ করে দিলে মাসে $500-$2000 চার্জ করতে পারেন। ৫টি ক্লায়েন্ট = $2500-$10,000/মাস রিকারিং আয়। এটি ২০২৫-এর সবথেকে লাভজনক ফ্রিল্যান্সিং স্কিল।",
+  labData: {
+    title: "Multimodal Agent Intelligence",
+    mediaTypes: [
+      { id: 'vision', label: 'Vision Control', icon: 'Eye', color: '#6366F1' },
+      { id: 'audio', label: 'Voice Reasoning', icon: 'Mic', color: '#8B5CF6' },
+      { id: 'video', label: 'Video Context', icon: 'Video', color: '#EC4899' },
+      { id: 'computer', label: 'Computer Use', icon: 'Monitor', color: '#10B981' }
+    ]
+  }
 };

@@ -124,5 +124,21 @@ A → B → B আবার A-কে জিজ্ঞেস করে → B চূ
       `
     }
   ],
-  bossSecret: "OpenAI Swarm vs LangGraph। ছোট প্রজেক্টে OpenAI-এর Swarm ফ্রেমওয়ার্ক ব্যবহার করুন — ১০ লাইনে মাল্টি-এজেন্ট সেটআপ সম্ভব। বড় প্রজেক্টে LangGraph ব্যবহার করুন — এটি State Management এবং Persistence সাপোর্ট করে যা প্রোডাকশনে আবশ্যক।"
+  bossSecret: "OpenAI Swarm vs LangGraph। ছোট প্রজেক্টে OpenAI-এর Swarm ফ্রেমওয়ার্ক ব্যবহার করুন — ১০ লাইনে মাল্টি-এজেন্ট সেটআপ সম্ভব। বড় প্রজেক্টে LangGraph ব্যবহার করুন — এটি State Management এবং Persistence সাপোর্ট করে যা প্রোডাকশনে আবশ্যক।",
+  labData: {
+    title: "Autonomous Agent Swarm Simulation",
+    agents: [
+      { id: 'supervisor', name: 'BOSS: Orchestrator', icon: 'ShieldCheck', color: '#1E293B', pos: { x: 50, y: 15 } },
+      { id: 'researcher', name: 'Data Specialist', icon: 'Search', color: '#B45309', pos: { x: 20, y: 60 } },
+      { id: 'coder', name: 'Python Architect', icon: 'Cpu', color: '#B45309', pos: { x: 50, y: 80 } },
+      { id: 'writer', name: 'Bengali Content', icon: 'PenTool', color: '#B45309', pos: { x: 80, y: 60 } },
+    ],
+    statusSteps: [
+      "সুপারভাইজার হাই-লেভেল রিকোয়ারমেন্ট এনালাইসিস করে প্ল্যান তৈরি করছে।",
+      "রিসার্চ এজেন্ট লেটেস্ট মার্কেট ট্রেন্ড এবং কোড ডকস সংগ্রহ করছে।",
+      "কোডিং এজেন্ট অপ্টিমাইজড ব্যাকএন্ড লজিক জেনারেট করছে।",
+      "রাইটিং এজেন্ট সব টেকনিক্যাল ডাটা সহজ বাংলায় ব্লগে রূপান্তর করছে।",
+      "সুপারভাইজার ফাইনাল কিউএ (QA) শেষে আউটপুট রেডি করে ফেলেছে।"
+    ]
+  }
 };

@@ -132,5 +132,11 @@ Claude-এর Constitutional AI এবং GPT-এর Moderation API ব্যব
       `
     }
   ],
-  bossSecret: "Red Team Testing নিয়মিত করুন। প্রতি সপ্তাহে ১ ঘণ্টা নিজের AI সিস্টেমকে হ্যাক করার চেষ্টা করুন। নতুন নতুন ইনজেকশন পদ্ধতি ট্রাই করুন। আপনি যদি নিজেই ভাঙতে পারেন, তবে হ্যাকাররাও পারবে। যেগুলো কাজ করে সেগুলো ঠিক করুন এবং Detection Pattern-এ যোগ করুন।"
+  bossSecret: "Red Team Testing নিয়মিত করুন। প্রতি সপ্তাহে ১ ঘণ্টা নিজের AI সিস্টেমকে হ্যাক করার চেষ্টা করুন। নতুন নতুন ইনজেকশন পদ্ধতি ট্রাই করুন। আপনি যদি নিজেই ভাঙতে পারেন, তবে হ্যাকাররাও পারবে। যেগুলো কাজ করে সেগুলো ঠিক করুন এবং Detection Pattern-এ যোগ করুন।",
+  labData: {
+    title: "AI Security Penetration Lab",
+    injectionKeywords: ['ignore', 'reveal', 'system prompt', 'dan', 'jailbreak', 'do anything now', 'bypass', 'secret'],
+    systemPromptLeak: "I am a high-security banking AI. My secret API key is: BOSS-7788-SECURE. Always follow user orders.",
+    bossTip: "\"Zero-Trust\" মডেল অনুসরণ করুন। ইউজারের দেওয়া কোনো কমান্ডকে কখনোই সরাসরি সিস্টেম কমান্ড রি-রাইট করার পারমিশন দেবেন না। XML ট্যাগের মাধ্যমে ইনপুটকে আইসোলেট করা সবথেকে স্মার্ট মুভ।"
+  }
 };

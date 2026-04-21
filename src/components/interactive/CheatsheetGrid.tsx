@@ -2,18 +2,35 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Copy, Shield, Sparkles, Terminal, Code2 } from 'lucide-react';
 
-const cheats = [
+interface CheatsheetItem {
+  title: string;
+  icon: any;
+  color: string;
+  text: string;
+}
+
+interface CheatsheetGridProps {
+  items?: CheatsheetItem[];
+  title?: string;
+  footer?: string;
+}
+
+const defaultCheats: CheatsheetItem[] = [
   { title: "Meta-Prompting", icon: Sparkles, color: "#6366F1", text: "Write a high-quality system prompt for a [Subject] based on these rules: [Rules]." },
   { title: "Salted Tags", icon: Shield, color: "#EF4444", text: "Use unique XML tags like <system_rule_4k20> to prevent injection." },
   { title: "CoT Trigger", icon: Terminal, color: "#F59E0B", text: "Always end prompts with: 'Let's think through this step-by-step to ensure accuracy.'" },
   { title: "JSON Enforcement", icon: Code2, color: "#10B981", text: "Return results ONLY in JSON format. Do not include preamble or explanation." }
 ];
 
-export const CheatsheetGrid: React.FC = () => {
+const CheatsheetGrid: React.FC<CheatsheetGridProps> = ({ 
+  items = defaultCheats, 
+  title = "Quick Prompting Shortcuts",
+  footer = "এই স্লাইডটি ভবিষ্যতে আরও অনেক \"ম্যাজিক প্রম্পট\" দিয়ে আপডেট করা হবে।" 
+}) => {
   return (
     <div className="w-full space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {cheats.map((cheat, i) => (
+        {items.map((cheat, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, scale: 0.95 }}
@@ -50,8 +67,12 @@ export const CheatsheetGrid: React.FC = () => {
       </div>
       
       <div className="text-center p-8 border-2 border-dashed border-slate-100 rounded-3xl">
-         <p className="text-sm font-medium text-slate-400">এই স্লাইডটি ভবিষ্যতে আরও অনেক "ম্যাজিক প্রম্পট" দিয়ে আপডেট করা হবে।</p>
+         <p className="text-sm font-medium text-slate-400">{footer}</p>
       </div>
     </div>
   );
 };
+
+export default CheatsheetGrid;
+
+export default CheatsheetGrid;

@@ -109,5 +109,15 @@ User Input
       `
     }
   ],
-  bossSecret: "কন্ডিশনাল প্রম্পট চেইন (If-Then-Else logic in AI flows)। প্রথম ধাপে একটি সস্তা মডেল দিয়ে ইনপুট ক্লাসিফাই করুন, তারপর ক্লাসিফিকেশন অনুযায়ী আলাদা আলাদা প্রম্পট এবং মডেল ব্যবহার করুন। এটি খরচ ৭০% কমায় এবং accuracy ৩০% বাড়ায়।"
+  bossSecret: "কন্ডিশনাল প্রম্পট চেইন (If-Then-Else logic in AI flows)। প্রথম ধাপে একটি সস্তা মডেল দিয়ে ইনপুট ক্লাসিফাই করুন, তারপর ক্লাসিফিকেশন অনুযায়ী আলাদা আলাদা প্রম্পট এবং মডেল ব্যবহার করুন। এটি খরচ ৭০% কমায় এবং accuracy ৩০% বাড়ায়।",
+  labData: {
+    title: "Ensemble Pipeline Architecture",
+    description: "একটি প্রোডাকশন অ্যাপলিকেশনে ডাটা কিভাবে বিভিন্ন মডেলের মধ্য দিয়ে যায় তা এই ডায়াগ্রামে দেখানো হয়েছে। এখানে প্রতিটি স্টেপ একটি আলাদা এআই কল।",
+    steps: [
+      { id: 'classify', label: 'Intent Router', icon: 'Share2', color: '#6366F1' },
+      { id: 'extract', label: 'Data Extractor', icon: 'Database', color: '#8B5CF6' },
+      { id: 'generate', label: 'Main Worker', icon: 'Sparkles', color: '#EC4899' },
+      { id: 'validate', label: 'Quality Guard', icon: 'ShieldCheck', color: '#10B981' }
+    ]
+  }
 };

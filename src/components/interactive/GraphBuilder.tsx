@@ -2,21 +2,59 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Share2, RefreshCcw, CheckCircle, Smartphone } from 'lucide-react';
 
-const nodes = [
-  { id: 'start', x: 20, y: 50, label: 'Start', color: '#6366F1' },
-  { id: 'agent', x: 50, y: 50, label: 'Agent', color: '#8B5CF6' },
-  { id: 'tool', x: 50, y: 20, label: 'Tool Use', color: '#EC4899' },
-  { id: 'end', x: 80, y: 50, label: 'End', color: '#10B981' }
-];
+interface Node {
+  id: string;
+  x: number;
+  y: number;
+  label: string;
+  color: string;
+}
 
-const edges = [
-  { from: 'start', to: 'agent', curved: false },
-  { from: 'agent', to: 'tool', curved: true, type: 'action' },
-  { from: 'tool', to: 'agent', curved: true, type: 'observation' },
-  { from: 'agent', to: 'end', curved: false, type: 'finish' }
-];
+interface Edge {
+  from: string;
+  to: string;
+  curved?: boolean;
+  type?: string;
+}
 
-export const GraphBuilder: React.FC = () => {
+interface GraphBuilderProps {
+  nodes?: Node[];
+  edges?: Edge[];
+  descriptions?: Record<string, string>;
+  title?: string;
+}
+
+const GraphBuilder: React.FC<GraphBuilderProps> = ({
+  nodes: initialNodes,
+  edges: initialEdges,
+  descriptions: initialDescriptions,
+  title = "LangGraph স্টেট মেশিন"
+}) => {
+  const defaultNodes: Node[] = [
+    { id: 'start', x: 20, y: 50, label: 'Start', color: '#6366F1' },
+    { id: 'agent', x: 50, y: 50, label: 'Agent', color: '#8B5CF6' },
+    { id: 'tool', x: 50, y: 20, label: 'Tool Use', color: '#EC4899' },
+    { id: 'end', x: 80, y: 50, label: 'End', color: '#10B981' }
+  ];
+
+  const defaultEdges: Edge[] = [
+    { from: 'start', to: 'agent', curved: false },
+    { from: 'agent', to: 'tool', curved: true, type: 'action' },
+    { from: 'tool', to: 'agent', curved: true, type: 'observation' },
+    { from: 'agent', to: 'end', curved: false, type: 'finish' }
+  ];
+
+  const defaultDescriptions = {
+    start: "সিস্টেম রান করা শুরু হচ্ছে।",
+    agent: "এজেন্ট চিন্তা করছে পরবর্তী পদক্ষেপ কী হবে।",
+    tool: "এজেন্ট বাইরের কোনো এপিআই (যেমন: গুগল সার্চ) কল করছে।",
+    end: "কাজ শেষ! আউটপুট ইউজারের কাছে পাঠানো হয়েছে।"
+  };
+
+  const nodes = initialNodes || defaultNodes;
+  const edges = initialEdges || defaultEdges;
+  const descriptions = initialDescriptions || defaultDescriptions;
+
   const [activeNode, setActiveNode] = useState('start');
 
   return (
@@ -95,10 +133,7 @@ export const GraphBuilder: React.FC = () => {
              </div>
           </div>
           <p className="text-[10px] text-slate-500 italic max-w-[200px] text-right">
-            {activeNode === 'start' && "সিস্টেম রান করা শুরু হচ্ছে।"}
-            {activeNode === 'agent' && "এজেন্ট চিন্তা করছে পরবর্তী পদক্ষেপ কী হবে।"}
-            {activeNode === 'tool' && "এজেন্ট বাইরের কোনো এপিআই (যেমন: গুগল সার্চ) কল করছে।"}
-            {activeNode === 'end' && "কাজ শেষ! আউটপুট ইউজারের কাছে পাঠানো হয়েছে।"}
+            {descriptions[activeNode] || "State বিবরণ পাওয়া যায়নি।"}
           </p>
         </div>
       </div>
@@ -117,3 +152,5 @@ export const GraphBuilder: React.FC = () => {
     </div>
   );
 };
+
+export default GraphBuilder;

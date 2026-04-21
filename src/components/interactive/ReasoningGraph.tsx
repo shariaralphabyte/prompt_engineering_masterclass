@@ -1,16 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import { GitBranch, Target, AlertTriangle, CheckCircle2, ChevronRight } from 'lucide-react';
 
-const ReasoningGraph: React.FC = () => {
+interface Node {
+  id: number;
+  title: string;
+  status: 'done' | 'pruned' | 'success' | 'processing' | 'pending';
+  depth: number;
+  pos: { x: number; y: number };
+}
+
+interface ReasoningGraphProps {
+  nodes?: Node[];
+  analysisSteps?: string[];
+  title?: string;
+}
+
+const ReasoningGraph: React.FC<ReasoningGraphProps> = ({
+  nodes: initialNodes,
+  analysisSteps: initialSteps,
+  title = "Cognitive Lab: Tree-of-Thought (ToT) Visualizer"
+}) => {
   const [activeNode, setActiveNode] = useState(0);
 
-  const nodes = [
+  const defaultNodes: Node[] = [
     { id: 0, title: 'Input Query', status: 'done', depth: 0, pos: { x: 50, y: 10 } },
     { id: 1, title: 'Thought A (Logic)', status: 'pruned', depth: 1, pos: { x: 20, y: 40 } },
     { id: 2, title: 'Thought B (Context)', status: 'success', depth: 1, pos: { x: 50, y: 40 } },
     { id: 3, title: 'Thought C (Safety)', status: 'processing', depth: 1, pos: { x: 80, y: 40 } },
     { id: 4, title: 'Refined Path', status: 'pending', depth: 2, pos: { x: 50, y: 75 } },
   ];
+
+  const defaultSteps = [
+    "মডেল ইনপুট কুয়েরি থেকে একাধিক থট পাথ জেনারেট করছে।",
+    "Thought A লজিক্যাল ভুলের কারণে রিজেক্ট বা প্রুনিং (Pruned) করা হয়েছে।",
+    "Thought B সবথেকে সঠিক পথ হিসেবে সিলেক্ট করা হয়েছে।",
+    "Thought C এর সেফটি গার্ডরেইল চেক করা হচ্ছে।",
+    "ফাইনাল অপ্টিমাইজড আউটপুট তৈরি হচ্ছে।"
+  ];
+
+  const nodes = initialNodes || defaultNodes;
+  const analysisSteps = initialSteps || defaultSteps;
 
   useEffect(() => {
     const timer = setInterval(() => {

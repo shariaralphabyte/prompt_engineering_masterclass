@@ -2,7 +2,19 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Lightbulb, FileText, Code, ShieldCheck, Rocket, Search } from 'lucide-react';
 
-const timelineSteps = [
+interface TimelineStep {
+  id: number;
+  title: string;
+  icon: any;
+  color: string;
+  desc: string;
+}
+
+interface ProjectTimelineProps {
+  steps?: TimelineStep[];
+}
+
+const defaultSteps: TimelineStep[] = [
   { id: 1, title: 'Idea & PRD', icon: Lightbulb, color: '#F59E0B', desc: 'আইডিয়া থেকে প্রোডাক্ট রিকোয়ারমেন্ট ডকুমেন্ট (PRD) তৈরি।' },
   { id: 2, title: 'SPEC.md', icon: FileText, color: '#3B82F6', desc: 'টেকনিক্যাল আর্কিটেকচার এবং স্পেসিফিকেশন ডকুমেন্টেশন।' },
   { id: 3, title: 'AI Coding', icon: Code, color: '#8B5CF6', desc: 'Cursor বা Claude Code ব্যবহার করে দ্রুত কোড জেনারেশন।' },
@@ -11,8 +23,12 @@ const timelineSteps = [
   { id: 6, title: 'Deployment', icon: Rocket, color: '#6366F1', desc: 'SaaS টি লাইভ করা এবং মনিটরিং টুলস সেটআপ।' }
 ];
 
-export const ProjectTimeline: React.FC = () => {
+const ProjectTimeline: React.FC<ProjectTimelineProps> = ({ 
+  steps = defaultSteps 
+}) => {
   const [hoveredStep, setHoveredStep] = useState<number | null>(null);
+
+  const activeStep = steps.find(s => s.id === hoveredStep);
 
   return (
     <div className="w-full space-y-10 py-6">
@@ -21,7 +37,7 @@ export const ProjectTimeline: React.FC = () => {
         <div className="absolute top-1/2 left-0 w-full h-1 bg-slate-800 -translate-y-1/2 hidden md:block" />
         
         <div className="grid grid-cols-2 md:grid-cols-6 gap-6 relative z-10">
-          {timelineSteps.map((step, index) => {
+          {steps.map((step, index) => {
             const Icon = step.icon;
             const isHovered = hoveredStep === step.id;
             
@@ -61,20 +77,20 @@ export const ProjectTimeline: React.FC = () => {
         <div 
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{ 
-            backgroundImage: `radial-gradient(circle at 50% 50%, ${hoveredStep ? timelineSteps.find(s => s.id === hoveredStep)!.color : '#6366F1'} 0%, transparent 70%)` 
+            backgroundImage: `radial-gradient(circle at 50% 50%, ${activeStep ? activeStep.color : '#6366F1'} 0%, transparent 70%)` 
           }} 
         />
         <div className="text-center space-y-3 relative z-10">
-          {hoveredStep ? (
+          {activeStep ? (
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
             >
-              <h5 className="text-xl font-bold mb-2" style={{ color: timelineSteps.find(s => s.id === hoveredStep)!.color }}>
-                {timelineSteps.find(s => s.id === hoveredStep)!.title}
+              <h5 className="text-xl font-bold mb-2" style={{ color: activeStep.color }}>
+                {activeStep.title}
               </h5>
               <p className="text-slate-300 max-w-lg mx-auto font-medium leading-relaxed">
-                {timelineSteps.find(s => s.id === hoveredStep)!.desc}
+                {activeStep.desc}
               </p>
             </motion.div>
           ) : (
@@ -90,13 +106,14 @@ export const ProjectTimeline: React.FC = () => {
             </div>
             <div>
                <p className="text-[10px] text-indigo-400 font-black uppercase tracking-widest leading-none">Ready for Launch?</p>
-               <p className="text-sm font-bold text-slate-200 mt-1">এই ৬টি ধাপ ফলো করলে আপনার SaaS হবে টেকনিক্যালি সাউন্ড এবং সিকিউর।</p>
+               <p className="text-sm font-bold text-slate-200 mt-1">প্রজেক্ট লাইফসাইকেলের প্রতিটি ধাপেই এআই টুলস ব্যবহার করে আপনার প্রোডাক্টিভিটি ১০ গুণ পর্যন্ত বাড়ানো সম্ভব।</p>
             </div>
          </div>
-         <button className="hidden lg:block bg-white text-slate-900 px-6 py-2 rounded-xl text-xs font-black uppercase hover:bg-slate-100 transition-colors">
-            Download Checklist
-         </button>
       </div>
     </div>
   );
 };
+
+export default ProjectTimeline;
+
+export default ProjectTimeline;

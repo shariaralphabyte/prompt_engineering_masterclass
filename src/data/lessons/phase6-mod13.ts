@@ -101,5 +101,16 @@ GraphRAG ব্যয়বহুল (Entity Extraction-এ অনেক LLM ক
       `
     }
   ],
-  bossSecret: "কনটেক্সট উইন্ডো ম্যানেজমেন্ট। মডেলকে সব ডাটা একসাথে না দিয়ে শুধুমাত্র টপ ৫টি সবথেকে রিলেভেন্ট রেজাল্ট দিন। এতে কস্ট কমবে এবং হ্যালুসিনেশন ০% এ চলে আসবে। মনে রাখবেন: More context ≠ Better answer। Relevant context = Better answer।"
+  bossSecret: "কনটেক্সট উইন্ডো ম্যানেজমেন্ট। মডেলকে সব ডাটা একসাথে না দিয়ে শুধুমাত্র টপ ৫টি সবথেকে রিলেভেন্ট রেজাল্ট দিন। এতে কস্ট কমবে এবং হ্যালুসিনেশন ০% এ চলে আসবে। মনে রাখবেন: More context ≠ Better answer। Relevant context = Better answer।",
+  labData: {
+    title: "The RAG Memory Lifecycle",
+    bossSecret: "RAG (Retrieval-Augmented Generation) ব্যবহারের ফলে মডেল হ্যালুসিনেশন করে না। কারণ সে উত্তর দেওয়ার আগে আপনার ভেক্টর ডাটাবেস থেকে তথ্য নিয়ে আসে।",
+    steps: [
+      { id: 'query', title: 'User Input Query', desc: 'মডেল প্রোম্পটটি এনালাইজ করে কী ওয়ার্ড এবং ইনটেন্ট বুঝছে।', icon: 'MessageSquare' },
+      { id: 'search', title: 'Vector DB Search', desc: 'Pinecone বা ChromaDB থেকে রিলেভেন্ট ডকুমেন্টের টপ ৩টি স্লাইস খোঁজা হচ্ছে।', icon: 'Search' },
+      { id: 'context', title: 'Prompt Injection', desc: 'খুজে পাওয়া ডেটা বা নলেজ মূল প্রম্পটে ডাইনামিকালি ইনজেক্ট করা হচ্ছে।', icon: 'Database' },
+      { id: 'reason', title: 'Grounded Reasoning', desc: 'মডেল শুধুমাত্র ইনজেক্টেড ডেটা দিয়েই উত্তর তৈরি করছে (No Hallucination)।', icon: 'Cpu' },
+      { id: 'output', title: 'Verified Output', desc: 'সঠিক সোর্স সাইটেশন সহ উত্তর ইউজারের কাছে জেনারেট হয়েছে।', icon: 'CheckCircle2' },
+    ]
+  }
 };

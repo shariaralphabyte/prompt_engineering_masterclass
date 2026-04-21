@@ -118,5 +118,16 @@ Budget System:
       `
     }
   ],
-  bossSecret: "ইউজার ফিডব্যাকের মাধ্যমে Evals ইমপ্রুভ করা। প্রতিটি AI রেসপন্সের পাশে 👍/👎 বাটন রাখুন। ইউজার 👎 দিলে সেই query-response জোড়াটি আপনার Golden Dataset-এ Negative Example হিসেবে যোগ করুন। ৩ মাস পরে আপনার কাছে একটি মারাত্মক Eval Dataset থাকবে যা শুধু আপনার কোম্পানির জন্য কাস্টমাইজড।"
+  bossSecret: "ইউজার ফিডব্যাকের মাধ্যমে Evals ইমপ্রুভ করা। প্রতিটি AI রেসপন্সের পাশে 👍/👎 বাটন রাখুন। ইউজার 👎 দিলে সেই query-response জোড়াটি আপনার Golden Dataset-এ Negative Example হিসেবে যোগ করুন। ৩ মাস পরে আপনার কাছে একটি মারাত্মক Eval Dataset থাকবে যা শুধু আপনার কোম্পানির জন্য কাস্টমাইজড।",
+  labData: {
+    title: "AI Execution Trace (Latency Analytics)",
+    steps: [
+      { title: "Query Received", time: "0s", desc: "User input captured in API Gateway", status: 'done' },
+      { title: "Intent Routing", time: "0.4s", desc: "GPT-4o-mini classified as 'Refund Request'", status: 'done' },
+      { title: "RAG Retrieval", time: "1.2s", desc: "Vector search in Pinecone found policy docs", status: 'done' },
+      { title: "LLM Generation", time: "3.5s", desc: "Claude-3-Sonnet generating Bengali response", status: 'done' },
+      { title: "Safety Check", time: "3.7s", desc: "Zero-shot PII detection passed", status: 'done' },
+      { title: "Final Delivery", time: "3.8s", desc: "Response streamed to client", status: 'pending' }
+    ]
+  }
 };

@@ -110,5 +110,20 @@ JSON ফরম্যাটে উত্তর দাও:
       `
     }
   ],
-  bossSecret: "Eval-Driven Development (EDD)। কোড লেখার আগে টেস্ট লেখার মতো, প্রম্পট লেখার আগে Eval লিখুন। প্রথমে ঠিক করুন কী কী মেট্রিক্সে কত স্কোর দরকার, তারপর সেই স্কোর অর্জন না হওয়া পর্যন্ত প্রম্পট অপ্টিমাইজ করুন। এটি Anthropic, OpenAI এবং Google-এর ইন্টারনাল প্র্যাকটিস।"
+  bossSecret: "Eval-Driven Development (EDD)। কোড লেখার আগে টেস্ট লেখার মতো, প্রম্পট লেখার আগে Eval লিখুন। প্রথমে ঠিক করুন কী কী মেট্রিক্সে কত স্কোর দরকার, তারপর সেই স্কোর অর্জন না হওয়া পর্যন্ত প্রম্পট অপ্টিমাইজ করুন। এটি Anthropic, OpenAI এবং Google-এর ইন্টারনাল প্র্যাকটিস।",
+  labData: {
+    title: "AI Quality Dashboard (Evals)",
+    metrics: [
+      { label: "Accuracy", value: 94.2, trend: 1.5, status: 'good' },
+      { label: "Hallucination", value: 0.8, trend: -0.2, status: 'excellent' },
+      { label: "Avg Latency", value: 1.2, trend: 0.1, status: 'warning' },
+      { label: "Cost/1k", value: 0.04, trend: -0.05, status: 'excellent' }
+    ],
+    chartData: [
+      { version: 'v1', score: 78, price: 0.12 },
+      { version: 'v1.1', score: 82, price: 0.10 },
+      { version: 'v2.0', score: 91, price: 0.08 },
+      { version: 'v2.1', score: 94, price: 0.04 }
+    ]
+  }
 };

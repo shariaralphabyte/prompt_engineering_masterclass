@@ -151,5 +151,35 @@ return draft  # Best effort after max iterations
       `
     }
   ],
-  bossSecret: "নেতিবাচক রিফ্লেকশন (Reverse Reflection) ব্যবহার করুন। মডেলকে বলুন 'তোমার উত্তরে কমপক্ষে ৩টি ভুল আছে — সেগুলো খুঁজে ঠিক করো।' এমনকি ভুল না থাকলেও মডেল আরও গভীরে গিয়ে চেক করবে এবং প্রায়ই সত্যিকারের ইমপ্রুভমেন্ট খুঁজে পাবে। এটি Anthropic-এর ইন্টারনাল টিমের প্র্যাকটিস।"
+  bossSecret: "নেতিবাচক রিফ্লেকশন (Reverse Reflection) ব্যবহার করুন। মডেলকে বলুন 'তোমার উত্তরে কমপক্ষে ৩টি ভুল আছে — সেগুলো খুঁজে ঠিক করো।' এমনকি ভুল না থাকলেও মডেল আরও গভীরে গিয়ে চেক করবে এবং প্রায়ই সত্যিকারের ইমপ্রুভমেন্ট খুঁজে পাবে। এটি Anthropic-এর ইন্টারনাল টিমের প্র্যাকটিস।",
+  labData: {
+    title: "Reflection Strategy Selector",
+    banner: "রিফ্লেকশন লুপ যত লম্বা হবে, কোয়ালিটি তত বাড়বে কিন্তু খরচও বাড়বে। সঠিক ব্যালেন্স খুঁজে পাওয়াই হলো ইঞ্জিনিয়ারিং সাফল্য।",
+    data: {
+      start: {
+        id: 'start',
+        question: "আপনার কাজের জন্য নির্ভুলতা (Accuracy) কতটা জরুরি?",
+        options: [
+          { label: "জীবন-মরণ সমস্যা (মেডিকেল/কোড)", nextId: 'critical' },
+          { label: "মোটামুটি ঠিক থাকলেই চলবে", result: "One-Shot Reflection (Simple & Fast)" }
+        ]
+      },
+      critical: {
+        id: 'critical',
+        question: "আপনার টোকেন বাজেট কেমন?",
+        options: [
+          { label: "আনলিমিটেড বাজেট", result: "Iterative Refinement Loop (3+ iterations)" },
+          { label: "সীমিত বাজেট", nextId: 'budget' }
+        ]
+      },
+      budget: {
+        id: 'budget',
+        question: "আপনি কি একাধিক মডেল ব্যবহার করতে পারবেন?",
+        options: [
+          { label: "হ্যাঁ, Claude + GPT মিক্সড", result: "Critic-Agent Pattern (Cross-Model Review)" },
+          { label: "না, একটি মডেলই যথেষ্ট", result: "Self-Critique with Forced Error Check" }
+        ]
+      }
+    }
+  }
 };

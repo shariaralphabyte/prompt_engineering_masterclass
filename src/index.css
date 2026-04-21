@@ -28,3 +28,13 @@ button {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--text-secondary);
 }
+
+::selection {
+  background: #ffffff;
+  color: #000000;
+}
+
+textarea::selection {
+  background: #ffffff !important;
+  color: #000000 !important;
+}

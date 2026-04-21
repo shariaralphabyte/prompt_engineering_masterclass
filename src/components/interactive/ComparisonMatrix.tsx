@@ -13,7 +13,7 @@ interface ComparisonMatrixProps {
   title?: string;
 }
 
-export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ headers, rows, title }) => {
+const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ headers, rows, title }) => {
   return (
     <div className="w-full space-y-4">
       {title && (
@@ -62,3 +62,5 @@ export const ComparisonMatrix: React.FC<ComparisonMatrixProps> = ({ headers, row
     </div>
   );
 };
+
+export default ComparisonMatrix;

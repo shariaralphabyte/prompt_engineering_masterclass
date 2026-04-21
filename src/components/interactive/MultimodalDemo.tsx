@@ -2,23 +2,39 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Image, Video, Mic, FileSearch, Sparkles } from 'lucide-react';
 
-const mediaTypes = [
+interface MediaType {
+  id: string;
+  icon: any;
+  label: string;
+  color: string;
+  desc: string;
+}
+
+interface MultimodalDemoProps {
+  mediaTypes?: MediaType[];
+  title?: string;
+}
+
+const defaultMedia: MediaType[] = [
   { id: 'image', icon: Image, label: 'Image', color: '#6366F1', desc: 'ভিশন এপিআই দিয়ে ডকুমেন্ট বা চার্ট এনালাইসিস।' },
   { id: 'video', icon: Video, label: 'Video', color: '#EC4899', desc: 'ভিডিও থেকে টাইমস্ট্যাম্প অনুযায়ী তথ্য খুঁজে বের করা।' },
   { id: 'audio', icon: Mic, label: 'Audio', color: '#F59E0B', desc: 'ট্রান্সক্রিপশন এবং অটোমেটেড সামারি জেনারেশন।' }
 ];
 
-export const MultimodalDemo: React.FC = () => {
-  const [activeType, setActiveType] = useState('image');
+const MultimodalDemo: React.FC<MultimodalDemoProps> = ({ 
+  mediaTypes = defaultMedia, 
+  title = "মাল্টিমোডাল ইনপুট ডেমো" 
+}) => {
+  const [activeType, setActiveType] = useState(mediaTypes[0]?.id);
 
-  const activeData = mediaTypes.find(t => t.id === activeType)!;
+  const activeData = mediaTypes.find(t => t.id === activeType) || mediaTypes[0];
 
   return (
     <div className="w-full space-y-8">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 text-indigo-400">
           <Sparkles size={18} />
-          <span className="text-sm font-bold uppercase tracking-widest">মাল্টিমোডাল ইনপুট ডেমো</span>
+          <span className="text-sm font-bold uppercase tracking-widest">{title}</span>
         </div>
       </div>
 
@@ -70,7 +86,7 @@ export const MultimodalDemo: React.FC = () => {
                <FileSearch size={20} className="text-emerald-400" />
                <div>
                   <p className="text-[10px] text-slate-500 font-black uppercase">Example Output</p>
-                  <p className="text-sm font-medium text-slate-200 italic">"The document shows a 25% growth in Q3 profits..."</p>
+                  <p className="text-sm font-medium text-slate-200 italic">"The model successfully interpreted the {activeType} context."</p>
                </div>
             </div>
           </div>
@@ -83,3 +99,7 @@ export const MultimodalDemo: React.FC = () => {
     </div>
   );
 };
+
+export default MultimodalDemo;
+
+export default MultimodalDemo;

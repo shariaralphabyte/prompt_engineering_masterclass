@@ -117,5 +117,9 @@ System Prompt (Direct Answer Rule) + Prefilling (JSON start) + Stop Sequence (cl
       `
     }
   ],
-  bossSecret: "স্টপ সিকোয়েন্স (Stop Sequences) হলো এআই আউটপুটের ব্রেক পেডাল। আপনি যদি কেবল ৩টি আইটেমের লিস্ট চান, তবে স্টপ সিকোয়েন্স হিসেবে '4.' দিন — মডেল ৩ নম্বরের পরেই থেমে যাবে। এটি কম্বাইন করুন max_tokens-এর সাথে — আপনি একটি ইফিশিয়েন্সি মেশিন তৈরি করবেন।"
+  bossSecret: "স্টপ সিকোয়েন্স (Stop Sequences) হলো এআই আউটপুটের ব্রেক পেডাল। আপনি যদি কেবল ৩টি আইটেমের লিস্ট চান, তবে স্টপ সিকোয়েন্স হিসেবে '4.' দিন — মডেল ৩ নম্বরের পরেই থেমে যাবে। এটি কম্বাইন করুন max_tokens-এর সাথে — আপনি একটি ইফিশিয়েন্সি মেশিন তৈরি করবেন।",
+  labData: {
+    title: "JSON Enforcement Validator",
+    initialJson: '{\n  "status": "success",\n  "data": {\n    "analysis": "Boss-level structured output",\n    "confidence": 0.99,\n    "metadata": {\n       "method": "prefilling"\n    }\n  }\n}'
+  }
 };

@@ -140,5 +140,15 @@ Claude Code:
       `
     }
   ],
-  bossSecret: "এজেন্টিক লুপ সেটআপ। Claude Code-এ 'Write code → Run tests → Fix failures → Repeat until all pass' এই লুপটি সেটআপ করুন। এটি আপনার হস্তক্ষেপ ছাড়াই বাগ-ফ্রি কোড ডেলিভার করবে। Linter + Formatter + Test Runner = AI-এর জন্য পারফেক্ট ফিডব্যাক লুপ।"
+  bossSecret: "এজেন্টিক লুপ সেটআপ। Claude Code-এ 'Write code → Run tests → Fix failures → Repeat until all pass' এই লুপটি সেটআপ করুন। এটি আপনার হস্তক্ষেপ ছাড়াই বাগ-ফ্রি কোড ডেলিভার করবে। Linter + Formatter + Test Runner = AI-এর জন্য পারফেক্ট ফিডব্যাক লুপ।",
+  labData: {
+    title: "Agentic IDE Shortcuts & Prompts",
+    footer: "এই শর্টকাটগুলো এবং .cursorrules ফাইলে প্রপার ইনস্ট্রাকশন সেট করলে আপনার কোডিং স্পিড ১০ গুণ বাড়তে বাধ্য।",
+    items: [
+      { title: "@docs Master", icon: 'FileText', color: "#3B82F6", text: "@docs [lib_url] -- Read the latest documentation for this library before generating code." },
+      { title: "Composer Multi-edit", icon: 'Sparkles', color: "#8B5CF6", text: "Cmd+I (Composer): 'Build the auth system with routes, controllers, and models.'" },
+      { title: "Claude Autonomous", icon: 'Terminal', color: "#F59E0B", text: "/init -- Prepare the project for Claude Code with commands and conventions." },
+      { title: "Deep Context", icon: 'Search', color: "#10B981", text: "@Codebase -- Search the entire repository to find relevant functions and files." }
+    ]
+  }
 };

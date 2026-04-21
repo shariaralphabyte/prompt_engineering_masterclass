@@ -2,14 +2,33 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Shield, Target, Brain } from 'lucide-react';
 
-const models = [
+interface Model {
+  name: string;
+  speed: string;
+  reasoning: string;
+  cost: string;
+  strength: string;
+  color: string;
+}
+
+interface ModelComparisonProps {
+  models?: Model[];
+  title?: string;
+  insight?: string;
+}
+
+const defaultModels: Model[] = [
   { name: 'Claude Opus 3.5', speed: 'Moderate', reasoning: 'Extreme', cost: 'High', strength: 'Coding & Nuanced Writing', color: '#7C3AED' },
   { name: 'GPT-4o', speed: 'Fast', reasoning: 'Very High', cost: 'Moderate', strength: 'Versatility & Vision', color: '#10B981' },
   { name: 'Gemini 3 Pro', speed: 'Massive', reasoning: 'High', cost: 'Low', strength: 'Long Context (2M+)', color: '#2563EB' },
   { name: 'OpenAI o1', speed: 'Slow', reasoning: 'God-Tier', cost: 'High', strength: 'Complex Logic & Math', color: '#000000' },
 ];
 
-export const ModelComparison: React.FC = () => {
+const ModelComparison: React.FC<ModelComparisonProps> = ({ 
+  models = defaultModels, 
+  title = "Model Comparison Matrix",
+  insight = "যদি কোডিং বা বড় আর্কিটেকচারের কাজ হয়, তবে **Claude Opus** সেরা। যদি অনেক বড় ফাইল (বই বা ভিডিও) এনালাইসিস করতে হয়, তবে **Gemini** ব্যবহার করুন। আর যদি কমপ্লেক্স ম্যাথ বা লজিক হয়, তবে **OpenAI o1** ছাড়া উপায় নেই।"
+}) => {
   return (
     <div className="w-full space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -50,10 +69,12 @@ export const ModelComparison: React.FC = () => {
         <h5 className="text-indigo-400 font-bold mb-2 flex items-center gap-2">
           <Target size={16} /> Boss-Level Selection Logic
         </h5>
-        <p>
-          যদি কোডিং বা বড় আর্কিটেকচারের কাজ হয়, তবে **Claude Opus** সেরা। যদি অনেক বড় ফাইল (বই বা ভিডিও) এনালাইসিস করতে হয়, তবে **Gemini** ব্যবহার করুন। আর যদি কমপ্লেক্স ম্যাথ বা লজিক হয়, তবে **OpenAI o1** ছাড়া উপায় নেই।
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: insight }} />
       </div>
     </div>
   );
 };
+
+export default ModelComparison;
+
+export default ModelComparison;

@@ -121,5 +121,30 @@ LangGraph-এ \`interrupt_before\` বা \`interrupt_after\` ব্যবহা
       `
     }
   ],
-  bossSecret: "নন-ডিটারমিনিস্টিক গ্রাফ হ্যান্ডলিং। LangGraph-এ একটি Agent-এর আউটপুট প্রতিবার আলাদা হতে পারে (Non-Deterministic)। এটি হ্যান্ডেল করতে সবসময় Structured Output (JSON Mode) ব্যবহার করুন এবং প্রতিটি কন্ডিশনাল এজে একটি 'default' পাথ রাখুন যা unexpected output-এ fallback হিসেবে কাজ করে।"
+  bossSecret: "নন-ডিটারমিনিস্টিক গ্রাফ হ্যান্ডলিং। LangGraph-এ একটি Agent-এর আউটপুট প্রতিবার আলাদা হতে পারে (Non-Deterministic)। এটি হ্যান্ডেল করতে সবসময় Structured Output (JSON Mode) ব্যবহার করুন এবং প্রতিটি কন্ডিশনাল এজে একটি 'default' পাথ রাখুন যা unexpected output-এ fallback হিসেবে কাজ করে।",
+  labData: {
+    title: "LangGraph State Machine Simulation",
+    nodes: [
+      { id: 'start', x: 10, y: 50, label: 'Entry', color: '#6366F1' },
+      { id: 'agent', x: 40, y: 50, label: 'Orchestrator', color: '#8B5CF6' },
+      { id: 'tool', x: 40, y: 20, label: 'Search Tool', color: '#EC4899' },
+      { id: 'human', x: 70, y: 50, label: 'HITL Review', color: '#F59E0B' },
+      { id: 'end', x: 90, y: 50, label: 'Output', color: '#10B981' }
+    ],
+    edges: [
+      { from: 'start', to: 'agent', curved: false },
+      { from: 'agent', to: 'tool', curved: true, type: 'action' },
+      { from: 'tool', to: 'agent', curved: true, type: 'observation' },
+      { from: 'agent', to: 'human', curved: false, type: 'verify' },
+      { from: 'human', to: 'agent', curved: true, type: 'feedback' },
+      { from: 'human', to: 'end', curved: false, type: 'approve' }
+    ],
+    descriptions: {
+      start: "ইউজার রিকোয়েস্ট গ্রাফে এন্টার করছে।",
+      agent: "এবি ল্যাব এজেন্ট পরবর্তী বেস্ট অ্যাকশন প্ল্যান করছে।",
+      tool: "রিয়েল-টাইম তথ্য সংগ্রহের জন্য এক্সটারনাল টুল কল করা হচ্ছে।",
+      human: "ক্রিটিক্যাল ডিসিশনের জন্য হিউম্যান রিভিউয়ের অপেক্ষা করা হচ্ছে।",
+      end: "মানুষের অ্যাপ্রুভাল শেষে ফাইনাল আউটপুট রেডি।"
+    }
+  }
 };

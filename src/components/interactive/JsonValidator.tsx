@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Braces, CheckCircle, AlertTriangle, Code2 } from 'lucide-react';
 
-export const JsonValidator: React.FC = () => {
-  const [json, setJson] = useState('{\n  "name": "Expert AI Agent",\n  "version": 1,\n  "capabilities": ["Reasoning", "Tool Use"]\n}');
+interface JsonValidatorProps {
+  initialJson?: string;
+  title?: string;
+}
+
+const JsonValidator: React.FC<JsonValidatorProps> = ({ 
+  initialJson = '{\n  "name": "Expert AI Agent",\n  "version": 1,\n  "capabilities": ["Reasoning", "Tool Use"]\n}',
+  title = "লাইভ JSON স্কিমা ভ্যালিডেটর"
+}) => {
+  const [json, setJson] = useState(initialJson);
   
   const validate = () => {
     try {
@@ -91,3 +99,5 @@ export const JsonValidator: React.FC = () => {
     </div>
   );
 };
+
+export default JsonValidator;

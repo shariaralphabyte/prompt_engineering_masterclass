@@ -1,16 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { FileText, ChevronRight, CheckSquare, Square, Terminal, Code, Database, Monitor, ShieldCheck } from 'lucide-react';
 
-const SpecVisualizer: React.FC = () => {
+interface Task {
+  id: number;
+  label: string;
+  status: 'done' | 'processing' | 'pending' | 'success';
+  icon: any;
+}
+
+interface SpecVisualizerProps {
+  tasks?: Task[];
+  title?: string;
+  bossTip?: string;
+}
+
+const SpecVisualizer: React.FC<SpecVisualizerProps> = ({
+  tasks: initialTasks,
+  title = "SDD (Spec-Driven Development) Visualizer",
+  bossTip = "SDD মানে হলো র্যান্ডম কোড না লিখে আগে একটি ব্লু-প্রিন্ট তৈরি করা। এতে এআই এজেন্ট ভুল ছাড়াই সম্পূর্ণ অ্যাপ্লিকেশন ডেভেলপ করতে পারে।"
+}) => {
   const [activeTask, setActiveTask] = useState(0);
 
-  const tasks = [
+  const defaultTasks: Task[] = [
     { id: 0, label: 'Parse SPEC.md', status: 'done', icon: FileText },
     { id: 1, label: 'Design API Schema', status: 'done', icon: Database },
     { id: 2, label: 'Initial Backend Setup', status: 'success', icon: Code },
     { id: 3, label: 'Build Frontend UI', status: 'processing', icon: Monitor },
     { id: 4, label: 'Unit Testing', status: 'pending', icon: ShieldCheck },
   ];
+
+  const tasks = initialTasks || defaultTasks;
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -100,7 +119,7 @@ const SpecVisualizer: React.FC = () => {
         color: '#D4AF37',
         fontFamily: 'var(--font-bengali)'
       }}>
-        <strong>Boss-Level Logic:</strong> SDD মানে হলো র্যান্ডম কোড না লিখে আগে একটি ব্লু-প্রিন্ট তৈরি করা। এতে এআই এজেন্ট ভুল ছাড়াই সম্পূর্ণ অ্যাপ্লিকেশন ডেভেলপ করতে পারে।
+        <strong>Boss-Level Logic:</strong> {bossTip}
       </div>
     </div>
   );

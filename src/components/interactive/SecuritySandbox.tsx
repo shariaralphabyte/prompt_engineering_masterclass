@@ -85,7 +85,7 @@ const SecuritySandbox: React.FC = () => {
           </div>
           
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: '#94A3B8' }}>
-            <p>> Monitoring incoming token stream...</p>
+            <p>&gt; Monitoring incoming token stream...</p>
             {status === 'blocked' && (
               <div style={{ marginTop: '1rem', color: '#10B981', background: 'rgba(16, 185, 129, 0.1)', padding: '1rem', borderRadius: '8px' }}>
                 <p><strong>[BLOCKED]</strong> Prompt injection pattern detected in &lt;user_input&gt; tags.</p>

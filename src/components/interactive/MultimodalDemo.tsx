@@ -49,7 +49,7 @@ const MultimodalDemo: React.FC<MultimodalDemoProps> = ({
                 ? 'bg-slate-800 border-indigo-500 shadow-xl shadow-indigo-500/10' 
                 : 'bg-slate-900/50 border-slate-700 hover:border-slate-500 opacity-60'
             }`}
-          >
+            <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white" style={{ backgroundColor: type.color }}>
                {React.createElement(resolveIcon(type.icon), { size: 24 })}
             </div>
             <span className={`text-xs font-black uppercase tracking-widest ${activeType === type.id ? 'text-white' : 'text-slate-500'}`}>

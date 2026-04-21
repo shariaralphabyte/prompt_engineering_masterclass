@@ -74,5 +74,3 @@ const CheatsheetGrid: React.FC<CheatsheetGridProps> = ({
 };
 
 export default CheatsheetGrid;
-
-export default CheatsheetGrid;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FileText, ChevronRight, CheckSquare, Square, Terminal, Code, Database, Monitor, ShieldCheck } from 'lucide-react';
+import { FileText, ChevronRight, CheckSquare, Square, Terminal, Code, Database, Monitor, ShieldCheck, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface Task {
   id: number;
@@ -36,7 +37,7 @@ const SpecVisualizer: React.FC<SpecVisualizerProps> = ({
       setActiveTask((prev) => (prev + 1) % tasks.length);
     }, 2800);
     return () => clearInterval(timer);
-  }, []);
+  }, [tasks.length]);
 
   return (
     <div className="premium-card" style={{ padding: '3rem', marginTop: '2rem', background: '#1A1A1A', color: 'white', borderRadius: '24px', overflow: 'hidden' }}>
@@ -69,7 +70,7 @@ const SpecVisualizer: React.FC<SpecVisualizerProps> = ({
                 borderLeft: isActive ? '3px solid #4CAF50' : '3px solid transparent',
                 transition: 'var(--transition-smooth)'
               }}>
-                {isDone ? <CheckSquare size={16} color="#4CAF50" /> : isActive ? <Terminal size={16} color="#4CAF50" /> : <Square size={16} color="rgba(255,255,255,0.3)" />}
+                {isDone ? <CheckSquare size={16} color="#4CAF50" /> : isActive ? <Terminal size={16} color="#4CAF50" /> : React.createElement(resolveIcon(task.icon || 'Square'), { size: 16, color: "rgba(255,255,255,0.3)" })}
                 <span style={{ fontSize: '0.85rem', fontWeight: isActive ? 600 : 400 }}>{task.label}</span>
               </div>
             );

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Search, Database, Cpu, MessageSquare, ArrowDown, CheckCircle2 } from 'lucide-react';
+import { Search, Database, Cpu, MessageSquare, ArrowDown, CheckCircle2, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface Step {
   id: string;
@@ -85,7 +85,7 @@ const MemoryTimeline: React.FC<MemoryTimelineProps> = ({
                 boxShadow: isActive ? '0 0 20px rgba(0,29,74,0.2)' : 'none',
                 transition: 'var(--transition-smooth)'
               }}>
-                <step.icon size={20} />
+                {React.createElement(resolveIcon(step.icon), { size: 20 })}
               </div>
 
               <div style={{ 

@@ -183,7 +183,11 @@ Anthropic এবং OpenAI দুজনেই Batch API অফার করে �
 }
 
 // Cost: $0.005 per request (90% Save!)
-// Time: 0.8s (Instant Hit)`
+// Time: 0.8s (Instant Hit)`,
+    labels: {
+      before: "Standard API Call (Expensive)",
+      after: "Optimized with Caching (Cheap)"
+    }
   }
 };
 

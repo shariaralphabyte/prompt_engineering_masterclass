@@ -161,10 +161,10 @@ LangSmith, PromptLayer, বা Anthropic Workbench ব্যবহার কর�
     title: "Structural Precision Matrix",
     headers: ["Method", "Precision", "Security", "Token Cost", "Best Use-Case"],
     rows: [
-      ["XML Tags", "High", "Excellent", "Moderate", "Complex Data & Coding"],
-      ["Markdown", "Moderate", "Good", "Low", "Instructional Content"],
-      ["Delimiters", "Low", "Moderate", "Very Low", "Simple List Separation"],
-      ["JSON Wraps", "Very High", "Excellent", "High", "Agentic Inter-op"]
+      { label: "XML Tags", values: ["High", "Excellent", "Moderate", "Complex Data & Coding"] },
+      { label: "Markdown", values: ["Moderate", "Good", "Low", "Instructional Content"] },
+      { label: "Delimiters", values: ["Low", "Moderate", "Very Low", "Simple List Separation"] },
+      { label: "JSON Wraps", values: ["Very High", "Excellent", "High", "Agentic Inter-op"] }
     ]
   }
 };

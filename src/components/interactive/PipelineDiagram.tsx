@@ -1,6 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Database, Search, FileText, Send, Share2 } from 'lucide-react';
+import { Database, Search, FileText, Send, Share2, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface PipelineStep {
   id: string;
@@ -46,7 +45,7 @@ const PipelineDiagram: React.FC<PipelineDiagramProps> = ({
                 className="w-20 h-20 rounded-3xl flex items-center justify-center text-white transition-all duration-500 shadow-2xl border-4 border-slate-900 group-hover:scale-110"
                 style={{ backgroundColor: step.color }}
               >
-                <Icon size={32} />
+                {React.createElement(resolveIcon(step.icon), { size: 32 })}
               </div>
               <div className="text-center">
                 <p className="text-[10px] font-black uppercase tracking-widest text-slate-500 group-hover:text-white transition-colors">Phase 0{i + 1}</p>

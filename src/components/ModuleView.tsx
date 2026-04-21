@@ -253,32 +253,100 @@ const ModuleView: React.FC<ModuleViewProps> = ({ module, phaseTitle, selectedLes
         </h2>
       </header>
 
-      {/* Lab Injection Logic */}
-      {module.labType === 'token' && <TokenViz />}
-      {module.labType === 'efficiency' && (
-        <EfficiencyLab 
-          before={moduleDeepData?.labData?.before || "..."} 
-          after={moduleDeepData?.labData?.after || "..."} 
-          labels={moduleDeepData?.labData?.labels || {before: 'Before', after: 'After'}} 
-        />
+      {/* Standardized Laboratory Section */}
+      {module.labType && (
+        <section style={{ 
+          marginTop: '4rem', 
+          borderTop: '2.4px solid var(--border-color)', 
+          paddingTop: '4rem',
+          animation: 'fadeIn 0.8s ease-out 0.2s both'
+        }}>
+          <h5 style={{ 
+            marginBottom: '2.5rem', 
+            color: 'var(--text-secondary)', 
+            fontSize: '0.85rem', 
+            textTransform: 'uppercase', 
+            fontWeight: 800, 
+            letterSpacing: '0.2em' 
+          }}>
+            Interactive Lab for this Module
+          </h5>
+          
+          <div className="lab-container" style={{ position: 'relative' }}>
+            {module.labType === 'token' && <TokenViz />}
+            {module.labType === 'efficiency' && (
+              <EfficiencyLab 
+                before={moduleDeepData?.labData?.before || "..."} 
+                after={moduleDeepData?.labData?.after || "..."} 
+                labels={moduleDeepData?.labData?.labels || {before: 'Before', after: 'After'}} 
+              />
+            )}
+            {module.labType === 'agent-swarm' && <AgentFlow />}
+            {module.labType === 'memory' && <MemoryTimeline />}
+            {module.labType === 'reasoning' && <ReasoningGraph />}
+            {module.labType === 'sdd' && <SpecVisualizer />}
+            {module.labType === 'security' && <SecuritySandbox />}
+            {module.labType === 'model-comp' && (
+              <ModelComparison 
+                models={moduleDeepData?.labData?.models} 
+                title={moduleDeepData?.labData?.title} 
+                insight={moduleDeepData?.labData?.insight}
+              />
+            )}
+            {module.labType === 'matrix' && (
+              <ComparisonMatrix 
+                headers={moduleDeepData?.labData?.headers || []} 
+                rows={moduleDeepData?.labData?.rows || []} 
+                title={moduleDeepData?.labData?.title} 
+              />
+            )}
+            {module.labType === 'validator' && (
+              <JsonValidator 
+                initialJson={moduleDeepData?.labData?.initialJson} 
+                title={moduleDeepData?.labData?.title} 
+              />
+            )}
+            {module.labType === 'pipeline' && (
+              <PipelineDiagram 
+                steps={moduleDeepData?.labData?.steps} 
+                title={moduleDeepData?.labData?.title} 
+              />
+            )}
+            {module.labType === 'decision' && (
+              <DecisionTree 
+                data={moduleDeepData?.labData?.data} 
+                title={moduleDeepData?.labData?.title} 
+              />
+            )}
+            {module.labType === 'cheatsheet' && (
+              <CheatsheetGrid 
+                items={moduleDeepData?.labData?.items} 
+                title={moduleDeepData?.labData?.title} 
+              />
+            )}
+            {module.labType === 'graph' && <GraphBuilder />}
+            {module.labType === 'eval' && (
+              <EvalDashboard 
+                metrics={moduleDeepData?.labData?.metrics} 
+                chartData={moduleDeepData?.labData?.chartData} 
+              />
+            )}
+            {module.labType === 'timeline' && (
+              <ProjectTimeline 
+                steps={moduleDeepData?.labData?.steps} 
+              />
+            )}
+            {module.labType === 'multimodal' && (
+              <MultimodalDemo 
+                mediaTypes={moduleDeepData?.labData?.mediaTypes} 
+                title={moduleDeepData?.labData?.title} 
+              />
+            )}
+          </div>
+        </section>
       )}
-      {module.labType === 'agent-swarm' && <AgentFlow />}
-      {module.labType === 'memory' && <MemoryTimeline />}
-      {module.labType === 'reasoning' && <ReasoningGraph />}
-      {module.labType === 'sdd' && <SpecVisualizer />}
-      {module.labType === 'security' && <SecuritySandbox />}
-      {module.labType === 'model-comp' && <ModelComparison />}
-      {module.labType === 'matrix' && <ComparisonMatrix />}
-      {module.labType === 'validator' && <JsonValidator />}
-      {module.labType === 'pipeline' && <PipelineDiagram />}
-      {module.labType === 'decision' && <DecisionTree />}
-      {module.labType === 'cheatsheet' && <CheatsheetGrid />}
-      {module.labType === 'graph' && <GraphBuilder />}
-      {module.labType === 'eval' && <EvalDashboard />}
-      {module.labType === 'timeline' && <ProjectTimeline />}
-      {module.labType === 'multimodal' && <MultimodalDemo />}
 
-      <div className="lesson-grid" style={{ display: 'grid', gap: '2rem', margin: '4rem 0' }}>
+      <div className="lesson-grid" style={{ display: 'grid', gap: '2rem', margin: '6rem 0' }}>
         {module.lessons.map((lesson) => (
           <div key={lesson.id} 
             className="premium-card" 

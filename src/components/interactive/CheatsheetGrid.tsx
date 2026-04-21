@@ -1,6 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Copy, Shield, Sparkles, Terminal, Code2 } from 'lucide-react';
+import { Copy, Shield, Sparkles, Terminal, Code2, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface CheatsheetItem {
   title: string;
@@ -42,12 +41,12 @@ const CheatsheetGrid: React.FC<CheatsheetGridProps> = ({
               className="absolute -right-4 -top-4 w-24 h-24 opacity-5 group-hover:opacity-10 transition-opacity"
               style={{ color: cheat.color }}
             >
-              <cheat.icon size={96} />
+              {React.createElement(resolveIcon(cheat.icon), { size: 96 })}
             </div>
             
             <div className="flex items-center gap-3 mb-4">
                <div className="w-10 h-10 rounded-xl flex items-center justify-center text-white shadow-lg" style={{ backgroundColor: cheat.color }}>
-                  <cheat.icon size={20} />
+                  {React.createElement(resolveIcon(cheat.icon), { size: 20 })}
                </div>
                <h5 className="font-bold text-slate-800">{cheat.title}</h5>
             </div>

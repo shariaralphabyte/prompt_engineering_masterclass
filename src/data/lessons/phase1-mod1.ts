@@ -1,6 +1,7 @@
 export const mod1Data = {
   id: "mod-1",
   title: "Module 1: The Token Architecture & LLM Mechanics",
+  labType: "token",
   lessons: [
     {
       id: "1.1",

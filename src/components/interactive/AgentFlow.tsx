@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { User, ShieldCheck, Search, PenTool, Database, Cpu, ArrowRight } from 'lucide-react';
+import { User, ShieldCheck, Search, PenTool, Database, Cpu, ArrowRight, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface Agent {
   id: string;
@@ -108,7 +108,7 @@ const AgentFlow: React.FC<AgentFlowProps> = ({
                 border: `2px solid ${agent.color}`,
                 transition: 'var(--transition-smooth)'
               }}>
-                <agent.icon size={24} />
+                {React.createElement(resolveIcon(agent.icon), { size: 24 })}
               </div>
               <span style={{ 
                 fontSize: '0.7rem', 

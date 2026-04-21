@@ -14,6 +14,11 @@
   --sidebar-width: 320px;
   --header-height: 64px;
   
+  /* Hierarchy Styles */
+  --phase-bg: rgba(241, 245, 249, 0.5);
+  --lesson-indent: 2rem;
+  --active-indicator: 4px;
+  
   /* Active States */
   --active-bg: #EFF6FF;
   --active-text: #2563EB;
@@ -67,7 +72,7 @@ h1, h2, h3, h4, .bengali-text {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.4);

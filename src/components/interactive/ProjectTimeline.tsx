@@ -115,5 +115,3 @@ const ProjectTimeline: React.FC<ProjectTimelineProps> = ({
 };
 
 export default ProjectTimeline;
-
-export default ProjectTimeline;

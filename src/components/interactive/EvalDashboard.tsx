@@ -95,5 +95,3 @@ const EvalDashboard: React.FC<EvalDashboardProps> = ({
 };
 
 export default EvalDashboard;
-
-export default EvalDashboard;

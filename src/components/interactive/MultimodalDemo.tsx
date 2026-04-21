@@ -101,5 +101,3 @@ const MultimodalDemo: React.FC<MultimodalDemoProps> = ({
 };
 
 export default MultimodalDemo;
-
-export default MultimodalDemo;

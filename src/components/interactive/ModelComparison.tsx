@@ -76,5 +76,3 @@ const ModelComparison: React.FC<ModelComparisonProps> = ({
 };
 
 export default ModelComparison;
-
-export default ModelComparison;

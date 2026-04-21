@@ -1,3 +1,5 @@
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Database, Search, FileText, Send, Share2, HelpCircle } from 'lucide-react';
 import { resolveIcon } from '../../utils/iconMap';
 

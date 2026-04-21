@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Image, Video, Mic, FileSearch, Sparkles } from 'lucide-react';
+import { Image, Video, Mic, FileSearch, Sparkles, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface MediaType {
   id: string;
@@ -49,8 +50,7 @@ const MultimodalDemo: React.FC<MultimodalDemoProps> = ({
                 : 'bg-slate-900/50 border-slate-700 hover:border-slate-500 opacity-60'
             }`}
           >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center text-white" style={{ backgroundColor: type.color }}>
-               <type.icon size={24} />
+               {React.createElement(resolveIcon(type.icon), { size: 24 })}
             </div>
             <span className={`text-xs font-black uppercase tracking-widest ${activeType === type.id ? 'text-white' : 'text-slate-500'}`}>
               {type.label}
@@ -68,7 +68,7 @@ const MultimodalDemo: React.FC<MultimodalDemoProps> = ({
            className="bg-slate-800/80 rounded-3xl border border-slate-700 p-8 flex flex-col md:flex-row items-center gap-8"
         >
           <div className="w-full md:w-1/3 aspect-square rounded-2xl bg-slate-900 border border-slate-700 flex items-center justify-center relative overflow-hidden group">
-             <activeData.icon size={64} className="text-slate-700 group-hover:text-indigo-500/50 transition-colors" />
+             {React.createElement(resolveIcon(activeData.icon), { size: 64, className: "text-slate-700 group-hover:text-indigo-500/50 transition-colors" })}
              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent" />
              <div className="absolute bottom-4 left-4 right-4 text-center">
                 <span className="text-[10px] font-black uppercase text-indigo-400 bg-indigo-500/10 px-2 py-1 rounded">Simulation</span>

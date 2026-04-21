@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Layers, ArrowRight, Activity, GitBranch } from 'lucide-react';
+import { Layers, ArrowRight, Activity, GitBranch, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface Node {
   id: string;
@@ -66,7 +67,7 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ nodes 
                   boxShadow: `0 0 40px ${node.color}20`
                 }}
               >
-                {node.icon ? <node.icon size={32} /> : <GitBranch size={32} />}
+                 {React.createElement(resolveIcon(node.icon || 'GitBranch'), { size: 32 })}
               </div>
               <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 group-hover:text-white transition-colors">{node.label}</p>
             </motion.div>

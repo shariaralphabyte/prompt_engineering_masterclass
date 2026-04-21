@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { Search, Database, Cpu, MessageSquare, ArrowDown, CheckCircle2, HelpCircle } from 'lucide-react';
 import { resolveIcon } from '../../utils/iconMap';
 

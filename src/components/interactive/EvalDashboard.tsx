@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Activity, BarChart3, Target, ShieldCheck, AlertCircle } from 'lucide-react';
+import { Activity, BarChart3, Target, ShieldCheck, AlertCircle, HelpCircle } from 'lucide-react';
+import { resolveIcon } from '../../utils/iconMap';
 
 interface Metric {
   label: string;
@@ -45,7 +46,7 @@ const EvalDashboard: React.FC<EvalDashboardProps> = ({
           >
             <div className="flex items-center gap-2 mb-2">
                <div className="w-7 h-7 rounded-lg flex items-center justify-center text-white p-1" style={{ backgroundColor: m.color }}>
-                  <m.icon size={16} />
+                  {React.createElement(resolveIcon(m.icon), { size: 16 })}
                </div>
                <span className="text-[10px] font-black uppercase text-slate-500">{m.label}</span>
             </div>

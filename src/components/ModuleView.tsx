@@ -272,7 +272,15 @@ const ModuleView: React.FC<ModuleViewProps> = ({ module, phaseTitle, selectedLes
             Interactive Lab for this Module
           </h5>
           
-          <div className="lab-container" style={{ position: 'relative' }}>
+          <div className="lab-container" style={{ 
+            position: 'relative', 
+            background: 'var(--bg-secondary)', 
+            border: '1.5px solid var(--border-color)',
+            borderRadius: '24px',
+            padding: '3rem',
+            boxShadow: 'var(--shadow-lg)',
+            overflow: 'hidden'
+          }}>
             {module.labType === 'token' && <TokenViz />}
             {module.labType === 'efficiency' && (
               <EfficiencyLab 

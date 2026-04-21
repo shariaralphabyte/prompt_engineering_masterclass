@@ -158,6 +158,3 @@ const DecisionTree: React.FC<DecisionTreeProps> = ({
 };
 
 export default DecisionTree;
-
-
-export default DecisionTree;
